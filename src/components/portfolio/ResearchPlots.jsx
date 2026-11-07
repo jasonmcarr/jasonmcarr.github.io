@@ -1,5 +1,6 @@
 import React from "react";
 import Plot from "react-plotly.js";
+import { themeTrace, themeLayout } from "./plotTheme";
 import thermal from "../../assets/json_files/thermalmotionscatterplot.json";
 import vertical from "../../assets/json_files/verticalhistogram.json";
 import transverse from "../../assets/json_files/transversehistogram.json";
@@ -22,21 +23,19 @@ export default function ResearchPlots({ type }) {
         ];
   return (
     <div className="research-plots">
+      {type === "optical" && (
+        <p className="calibration-note">
+          Original axis calibration: particle position in µm; displacement
+          histograms in µm². Histogram tick positions and occurrence labels are
+          retained from the original analysis.
+        </p>
+      )}
       {plots.map(([title, plot]) => (
         <figure key={title}>
           <h3>{title}</h3>
           <Plot
-            data={plot.data.map((trace) => ({
-              ...trace,
-              type: trace.type === "scattergl" ? "scatter" : trace.type,
-            }))}
-            layout={{
-              ...plot.layout,
-              autosize: true,
-              width: undefined,
-              height: 400,
-              margin: { l: 65, r: 30, t: 40, b: 75 },
-            }}
+            data={plot.data.map(themeTrace)}
+            layout={themeLayout(plot.layout, plot.data[0]?.type === "table")}
             useResizeHandler
             style={{ width: "100%" }}
             config={{ responsive: true, displaylogo: false, scrollZoom: false }}

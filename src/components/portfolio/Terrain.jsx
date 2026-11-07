@@ -1,71 +1,98 @@
-import React, { useEffect, useRef } from "react";
+import React, { useMemo } from "react";
 
-// A deterministic height field. Color and contours derive from the same elevation.
-export default function Terrain({ paused }) {
-  const canvasRef = useRef(null);
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return undefined;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let frame,
-      last = 0,
-      phase = 0;
-    const draw = () => {
-      const width = canvas.width,
-        height = canvas.height;
-      const image = ctx.createImageData(width, height);
-      for (let y = 0; y < height; y++) {
-        for (let x = 0; x < width; x++) {
-          const u = (x / width) * 6,
-            v = (y / height) * 4;
-          const h =
-            Math.sin(u * 0.85 + Math.sin(v * 0.9 + phase) * 1.2) +
-            0.55 * Math.cos(v * 1.6 - u * 0.3 + phase * 0.7) +
-            0.25 * Math.sin(u * 2.2 + v * 1.3 - phase * 0.5);
-          const level = (h + 1.8) / 3.6;
-          const contour = Math.pow(Math.max(0, Math.cos(h * 25)), 24);
-          const glow = Math.max(0, level) * 14;
-          const i = (y * width + x) * 4;
-          image.data[i] = 17 + glow * 0.65 + contour * 17;
-          image.data[i + 1] = 23 + glow + contour * 23;
-          image.data[i + 2] = 21 + glow * 0.65 + contour * 16;
-          image.data[i + 3] = 255;
+// Marching squares over a smooth height field. SVG paths stay sharp at every DPI.
+export function contourPaths() {
+  const nx = 120,
+    ny = 80,
+    w = 1440,
+    h = 960;
+  const field = Array.from({ length: ny + 1 }, (_, y) =>
+    Array.from({ length: nx + 1 }, (_, x) => {
+      const u = (x / nx) * 6,
+        v = (y / ny) * 4;
+      return (
+        Math.sin(u * 0.85 + Math.sin(v * 0.9) * 1.2) +
+        0.55 * Math.cos(v * 1.6 - u * 0.3) +
+        0.25 * Math.sin(u * 2.2 + v * 1.3)
+      );
+    }),
+  );
+  const paths = [];
+  for (let level = -1.75; level <= 1.8; level += 0.105) {
+    let d = "";
+    for (let y = 0; y < ny; y++)
+      for (let x = 0; x < nx; x++) {
+        const points = [
+          [x, y],
+          [x + 1, y],
+          [x + 1, y + 1],
+          [x, y + 1],
+        ];
+        const values = [
+          field[y][x],
+          field[y][x + 1],
+          field[y + 1][x + 1],
+          field[y + 1][x],
+        ];
+        const cuts = [];
+        for (let e = 0; e < 4; e++) {
+          const j = (e + 1) % 4;
+          const aboveStart = values[e] >= level;
+          const aboveEnd = values[j] >= level;
+          if (aboveStart !== aboveEnd) {
+            const t = (level - values[e]) / (values[j] - values[e]);
+            cuts.push([
+              ((points[e][0] + t * (points[j][0] - points[e][0])) * w) / nx,
+              ((points[e][1] + t * (points[j][1] - points[e][1])) * h) / ny,
+            ]);
+          }
         }
+        for (let k = 0; k + 1 < cuts.length; k += 2)
+          d += `M${cuts[k][0].toFixed(2)},${cuts[k][1].toFixed(2)}L${cuts[k + 1][0].toFixed(2)},${cuts[k + 1][1].toFixed(2)}`;
       }
-      ctx.putImageData(image, 0, 0);
-    };
-    const resize = () => {
-      canvas.width = Math.min(720, Math.round(window.innerWidth * 0.55));
-      canvas.height = Math.min(520, Math.round(window.innerHeight * 0.55));
-      draw();
-    };
-    const tick = (now) => {
-      if (now - last > 65) {
-        phase += Math.min((now - last) / 1000, 0.1) * 0.035;
-        last = now;
-        draw();
-      }
-      frame = requestAnimationFrame(tick);
-    };
-    const sync = () => {
-      cancelAnimationFrame(frame);
-      if (!paused && !reduced.matches && !document.hidden) {
-        last = performance.now();
-        frame = requestAnimationFrame(tick);
-      } else draw();
-    };
-    resize();
-    sync();
-    window.addEventListener("resize", resize);
-    document.addEventListener("visibilitychange", sync);
-    reduced.addEventListener("change", sync);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("resize", resize);
-      document.removeEventListener("visibilitychange", sync);
-      reduced.removeEventListener("change", sync);
-    };
-  }, [paused]);
-  return <canvas ref={canvasRef} className="terrain" aria-hidden="true" />;
+    paths.push(d);
+  }
+  return paths;
+}
+export default function Terrain({ paused }) {
+  const paths = useMemo(contourPaths, []);
+  return (
+    <svg
+      className={`terrain ${paused ? "terrain-paused" : ""}`}
+      viewBox="0 0 1440 960"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <radialGradient id="elevation-fill" cx="65%" cy="40%" r="80%">
+          <stop className="elevation-high" offset="0%" stopColor="#2c3c30" />
+          <stop className="elevation-mid" offset="50%" stopColor="#1a2923" />
+          <stop offset="100%" stopColor="#111715" />
+        </radialGradient>
+        <linearGradient
+          id="elevation-lines"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#6a846f" stopOpacity=".12" />
+          <stop offset="55%" stopColor="#adc89c" stopOpacity=".32" />
+          <stop offset="100%" stopColor="#86b0a6" stopOpacity=".12" />
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="960" fill="url(#elevation-fill)" />
+      <g
+        fill="none"
+        stroke="url(#elevation-lines)"
+        strokeWidth=".8"
+        strokeLinecap="round"
+      >
+        {paths.map((d, i) => (
+          <path key={i} d={d} vectorEffect="non-scaling-stroke" />
+        ))}
+      </g>
+    </svg>
+  );
 }

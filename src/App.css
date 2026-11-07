@@ -688,8 +688,9 @@ p + p {
   gap: 20px;
 }
 .research-plots figure {
-  background: #fff;
-  color: #111;
+  background: rgba(17, 23, 21, 0.45);
+  color: var(--text);
+  border: 1px solid var(--line);
   padding: 20px;
   margin: 30px 0;
   overflow: hidden;
@@ -1104,4 +1105,47 @@ dialog a {
 }
 .arrow-left {
   transform: rotate(-135deg);
+}
+
+.elevation-high {
+  animation: elevation-high 45s ease-in-out infinite alternate;
+}
+.elevation-mid {
+  animation: elevation-mid 45s ease-in-out infinite alternate;
+}
+@keyframes elevation-high {
+  to {
+    stop-color: #1a2b29;
+  }
+}
+@keyframes elevation-mid {
+  to {
+    stop-color: #2d382a;
+  }
+}
+.terrain-paused stop {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .terrain stop {
+    animation: none;
+  }
+}
+.calibration-note,
+.source-note {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.source-note {
+  margin-top: 16px;
+}
+.case-body aside .button {
+  margin-bottom: 12px;
+}
+.research-plots .modebar {
+  background: #1d2a22 !important;
+}
+.research-plots .modebar-btn path {
+  fill: #adc89c !important;
 }

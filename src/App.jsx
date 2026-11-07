@@ -29,12 +29,14 @@ function ProjectCard({ project, featured = false }) {
         ) : (
           <div className="data-art" aria-hidden="true">
             <span>
-              {project.plots === "optical" ? "5,000" : "DATA → INSIGHT"}
+              {project.art ||
+                (project.plots === "optical" ? "5,000" : "DATA → INSIGHT")}
             </span>
             <small>
-              {project.plots === "optical"
-                ? "IMAGES ANALYZED"
-                : "COLLECT / ANALYZE / VISUALIZE"}
+              {project.artCaption ||
+                (project.plots === "optical"
+                  ? "IMAGES ANALYZED"
+                  : "COLLECT / ANALYZE / VISUALIZE")}
             </small>
           </div>
         )}
@@ -384,8 +386,21 @@ function ProjectDetail() {
               target="_blank"
               rel="noreferrer"
             >
-              {project.codeLabel || "Explore the code"} <Arrow />
+              {project.codeLabel || "View code on GitHub"} <Arrow />
             </a>
+          )}
+          {project.demo && (
+            <a
+              className="button outline"
+              href={project.demo}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {project.demoLabel || "Open project"} <Arrow />
+            </a>
+          )}
+          {project.sourceNote && (
+            <p className="source-note">{project.sourceNote}</p>
           )}
         </aside>
         <div>

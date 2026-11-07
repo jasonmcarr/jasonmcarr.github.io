@@ -1,11 +1,11 @@
 import trapDiagram from "../../assets/images/project2/trap_diagram.png";
-import trajectories from "../../assets/images/project2/Trajectories.png";
-import fft from "../../assets/images/project2/Axial_FFT.png";
-import quality from "../../assets/images/project2/q_avg.png";
-import spectrum from "../../assets/images/project5/fluo_spectra.png";
 import poster from "../../assets/images/project6/optical-cooling.png";
 import dashboard from "../../assets/images/project3/tracker-home.png";
 import dashboardBars from "../../assets/images/project3/tracker-bar.png";
+const trajectories = `${process.env.PUBLIC_URL}/research/charts/Trajectories.png`;
+const fft = `${process.env.PUBLIC_URL}/research/charts/Axial_FFT.png`;
+const quality = `${process.env.PUBLIC_URL}/research/charts/q_avg.png`;
+const spectrum = `${process.env.PUBLIC_URL}/research/charts/fluo_spectra.png`;
 const photo = (name) => `${process.env.PUBLIC_URL}/research/${name}.png`;
 export const resume = `${process.env.PUBLIC_URL}/documents/Jason-Carr-Resume.pdf`;
 export const projects = [
@@ -37,6 +37,10 @@ export const projects = [
   },
   {
     id: "materials",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/redesign/sage-instruments/src/components/portfolio/projects.js",
+    codeLabel: "View page source on GitHub",
+    sourceNote:
+      "The linked source contains this research presentation; standalone analysis code is not included.",
     number: "02",
     title: "From chemistry to crystal.",
     name: "Crystal growth & material characterization",
@@ -100,7 +104,7 @@ export const projects = [
     id: "project2",
     number: "04",
     title: "Measuring the smallest movements.",
-    name: "Optical trapping & image analysis",
+    name: "Brownian motion & optical trapping",
     category: "Experimental systems",
     tags: ["Optical tweezers", "Computer vision", "NumPy"],
     summary:
@@ -119,6 +123,10 @@ export const projects = [
   },
   {
     id: "project6",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/main/src/components/projects/opticalCooling.jsx",
+    codeLabel: "View page source on GitHub",
+    sourceNote:
+      "The linked source is the research-poster presentation, not a separate analysis package.",
     number: "05",
     title: "Exploring light as a cooling tool.",
     name: "Optical cooling research",
@@ -183,11 +191,200 @@ export const projects = [
       "Organized the dashboard around country, continent, and date selection, with views highlighting vaccination data and comparative trends.",
     result:
       "Created a navigable visual interface that makes geographic comparisons and time filtering available to viewers.",
-    code: "https://public.tableau.com/views/coviddashboard_16748574137170/CovidTrackerDashboard1",
-    codeLabel: "Open Tableau dashboard",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/main/src/components/projects/pandemicTracker.jsx",
+    codeLabel: "View integration on GitHub",
+    demo: "https://public.tableau.com/views/coviddashboard_16748574137170/CovidTrackerDashboard1",
+    demoLabel: "Open Tableau dashboard",
     gallery: [
       [dashboard, "Dashboard overview"],
       [dashboardBars, "Comparative dashboard view"],
     ],
+  },
+
+  {
+    id: "semiconductor-calculator",
+    title: "Making semiconductor equations usable.",
+    name: "Semiconductor equations GUI",
+    tags: ["Python", "Tkinter", "NumPy"],
+    art: "n · p = nᵢ²",
+    artCaption: "SEMICONDUCTOR PHYSICS",
+    summary:
+      "A desktop calculator that turns a Python equation library into searchable, parameter-driven calculations.",
+    question:
+      "How can a library of semiconductor equations become easier to explore?",
+    contribution:
+      "Built the equation library and desktop interface, connecting semiconductor physics calculations with a searchable GUI.",
+    method:
+      "Python introspection extracts functions and parameter descriptions from docstrings. Tkinter and ttkbootstrap generate input fields, while NumPy implements carrier concentrations, Fermi levels, charge neutrality, recombination, and related equations.",
+    result:
+      "A reusable desktop study tool whose interface is driven by the underlying functions. The repository includes the GUI and equation module; it is an educational calculator rather than a validated device simulator.",
+    code: "https://github.com/jasonmcarr/Semiconductor-Eq-GUI",
+    number: "08",
+    category: "Software & data",
+    gallery: [],
+  },
+  {
+    id: "database-pipeline",
+    title: "Giving data a relational structure.",
+    name: "Synthetic retail database pipeline",
+    tags: ["PostgreSQL", "Pandas", "Faker"],
+    art: "1,000",
+    artCaption: "SYNTHETIC PROFILES",
+    summary:
+      "Generating synthetic camera-retail records and preparing connected tables for relational analysis.",
+    question:
+      "How can a flat synthetic dataset become a structured relational database?",
+    contribution:
+      "Created the synthetic-data generator, CSV transformation workflow, and SQL schema in the DatabaseMachineLearning repository.",
+    method:
+      "Faker generates 1,000 profiles. Python combines profiles with camera and lens products, prices, and order identifiers. Pandas exports separate order, item, customer, and address files; PostgreSQL definitions connect tables using row identifiers.",
+    result:
+      "An inspectable data-preparation and schema-design project. The current repository contains generation and database setup, rather than a trained machine-learning model.",
+    code: "https://github.com/jasonmcarr/DatabaseMachineLearning",
+    number: "09",
+    category: "Software & data",
+    gallery: [],
+    codeLabel: "View GitHub (private)",
+    sourceNote:
+      "Private repository. GitHub access is required to view its source.",
+  },
+  {
+    id: "tablet-driver-switch",
+    title: "Taking repetition out of setup.",
+    name: "Tablet driver switching automation",
+    tags: ["Python", "Windows", "Process automation"],
+    art: "DETECT → SWITCH",
+    artCaption: "DESKTOP AUTOMATION",
+    summary:
+      "A Windows utility that watches for a tablet-related process and coordinates switching to OpenTabletDriver.",
+    question: "How can a recurring pen-tablet setup sequence be automated?",
+    contribution:
+      "Wrote the process-monitoring script and supporting Windows batch files for a personal tablet workflow.",
+    method:
+      "Polls Windows task lists for TabTip.exe, runs a driver-control batch file, closes Wacom Center, and starts the OpenTabletDriver daemon and interface when needed. Uses psutil, subprocess, and window management to coordinate the sequence.",
+    result:
+      "A focused desktop utility that replaces repeated manual setup actions. Paths and driver names are specific to the configured Windows installation.",
+    code: "https://github.com/jasonmcarr/Tablet-Driver-Switch-Script",
+    number: "10",
+    category: "Software & data",
+    gallery: [],
+  },
+  {
+    id: "commander-simulator",
+    title: "Testing decisions with repeatable trials.",
+    name: "MTG Unified Simulator",
+    tags: ["Python", "Monte Carlo", "Reproducibility"],
+    art: "SEED → TRIAL → REPORT",
+    artCaption: "SIMULATION ENGINE",
+    summary:
+      "A versioned Commander goldfish simulation framework with explicit rules coverage and reproducible statistical reports.",
+    question:
+      "How can deck comparisons use consistent assumptions and repeatable measurements?",
+    contribution:
+      "Developed a shared simulation framework for deck studies, with recorded seeds, deck fingerprints, policies, and engine versions.",
+    method:
+      "Models a defined subset of mana, mulligans, commander deployment, and card effects. Runs repeated trials, reports milestone rates with Wilson confidence intervals, and supports extensible rule modules and regression tests.",
+    result:
+      "An experimental simulation baseline with CLI workflows and test coverage. Unmodeled cards are rejected by default; opponents and the complete Magic rules engine are outside the current baseline.",
+    code: "https://github.com/jasonmcarr/mtg-unified-simulator",
+    number: "11",
+    category: "Software & data",
+    gallery: [],
+    codeLabel: "View GitHub (private)",
+    sourceNote:
+      "Private repository. GitHub access is required to view its source.",
+  },
+  {
+    id: "portfolio-engineering",
+    title: "Presenting the work with precision.",
+    name: "Engineering portfolio website",
+    tags: ["React", "SVG", "Plotly"],
+    art: "DESIGN · BUILD · SHARE",
+    artCaption: "THIS PORTFOLIO",
+    summary:
+      "A responsive portfolio combining research case studies, interactive data, and a custom vector topographic background.",
+    question:
+      "How can technical work remain rigorous while being easy to explore?",
+    contribution:
+      "Built and iterated the portfolio around experiment design, system construction, and data analysis, with a unified sage visual theme.",
+    method:
+      "React routes connect project narratives, source links, image galleries, and Plotly visualizations. SVG contours preserve sharp lines at different screen sizes; motion controls and responsive layouts support accessible viewing.",
+    result:
+      "A browsable record of laboratory and software projects, with original research photography and direct paths to supporting code.",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/tree/redesign/sage-instruments",
+    number: "12",
+    category: "Software & data",
+    gallery: [],
+  },
+  {
+    id: "portfolio-archive",
+    title: "An early experiment in presentation.",
+    name: "Original portfolio website",
+    tags: ["HTML", "CSS", "JavaScript"],
+    art: "HTML / CSS / JS",
+    artCaption: "ARCHIVED WEB PROJECT",
+    summary:
+      "The archived static-site foundation for presenting technical projects and experimenting with animated visuals.",
+    question:
+      "How can a personal website bring project work into one coherent place?",
+    contribution:
+      "Created the early multi-page portfolio, including project, about, and contact pages and visual experiments.",
+    method:
+      "Used standalone HTML pages, page-specific CSS, and JavaScript sketches. The repository also contains a test environment for visual iteration.",
+    result:
+      "An archived predecessor that documents the portfolio’s evolution from a static multi-page site to the current React implementation.",
+    code: "https://github.com/jasonmcarr/PortfolioWebsite",
+    number: "13",
+    category: "Software & data",
+    gallery: [],
+    codeLabel: "View GitHub (private)",
+    sourceNote:
+      "Private repository. GitHub access is required to view its source.",
+  },
+  {
+    id: "rental-reporter",
+    title: "Finding useful signals in listings.",
+    name: "Rental discovery & reporting pipeline",
+    tags: ["Python", "BeautifulSoup", "ReportLab"],
+    art: "COLLECT → RANK → REPORT",
+    artCaption: "SEARCH AUTOMATION",
+    summary:
+      "A configurable pipeline that collects rental listings, scores their fit, removes duplicates, and produces email-ready reports.",
+    question: "How can recurring housing searches become easier to review?",
+    contribution:
+      "Built the rental-reporting script supplied with this portfolio, covering collection, ranking, persistence, reporting, and scheduling.",
+    method:
+      "Source adapters target Craigslist, Zillow, Redfin, and Apartments.com. Explicit scoring weighs layout, yard, pet language, and location. Normalized addresses and titles reduce duplicates; saved listing keys distinguish new results. ReportLab and HTML templates produce grouped reports, with optional SMTP delivery and a timezone-aware daily loop.",
+    result:
+      "A complete script for producing prioritized rental summaries. Live collection depends on each source’s markup and availability; source failures are logged so other adapters can continue.",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/redesign/sage-instruments/public/project-code/rental_reporter.py",
+    sourceNote:
+      "Based on the supplied message-1.txt script. Personal configuration and email credentials are not published.",
+    number: "14",
+    category: "Software & data",
+    gallery: [],
+  },
+  {
+    id: "discord-cleanup",
+    title: "Keeping a conversation space temporary.",
+    name: "Discord channel cleanup bot",
+    tags: ["Python", "discord.py", "Asyncio"],
+    art: "MESSAGE → DELAY → CLEANUP",
+    artCaption: "EVENT-DRIVEN AUTOMATION",
+    summary:
+      "A small asynchronous bot prototype for removing messages from a designated Discord text channel after a delay.",
+    question: "How can a selected channel keep only recent conversation?",
+    contribution:
+      "Created a channel-specific cleanup prototype using Discord events and asynchronous delays.",
+    method:
+      "Filters incoming messages by channel name, ignores messages from bots, waits 12 hours, then attempts deletion. A missing-message exception is suppressed when a message has already been removed.",
+    result:
+      "A concise event-driven prototype. Scheduled deletions live in process memory, so restarts interrupt pending tasks. The portfolio source replaces the embedded credential and server identifiers with environment variables.",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/redesign/sage-instruments/public/project-code/discord_cleanup_bot.py",
+    sourceNote:
+      "Sanitized source from the supplied bot.py. No bot token is included. Deployment still requires appropriate Discord intents and permissions.",
+    number: "15",
+    category: "Software & data",
+    gallery: [],
   },
 ];
