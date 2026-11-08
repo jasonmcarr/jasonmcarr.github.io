@@ -1,0 +1,28 @@
+name: Validate recovered sage preview
+on:
+  push:
+    branches:
+      - review/import-sage-preview
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install
+        run: npm ci --legacy-peer-deps
+      - name: Verify production build
+        env:
+          CI: 'false'
+        run: npm run build
+      - name: Check HTML routes and bundle
+        run: |
+          test -s build/index.html
+          test -d build/static/js
+          test -f build/CNAME
+          test "$(cat build/CNAME)" = "jacecarr.dev"
