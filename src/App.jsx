@@ -10,6 +10,7 @@ import {
 import ContactForm from "./components/portfolio/ContactForm";
 import Arrow from "./components/portfolio/Arrow";
 import Terrain from "./components/portfolio/Terrain";
+import ResilientImage from "./components/portfolio/ResilientImage";
 import { projects, resume } from "./components/portfolio/projects";
 import "./App.css";
 const ResearchPlots = lazy(
@@ -25,7 +26,7 @@ function ProjectCard({ project, featured = false }) {
     >
       <div className="card-image">
         {project.image ? (
-          <img src={project.image} alt={project.alt} loading="lazy" />
+          <ResilientImage src={project.image} alt={project.alt} loading="lazy" />
         ) : (
           <div className="data-art" aria-hidden="true">
             <span>
@@ -72,17 +73,14 @@ function Home() {
             REMOTE ROLES
           </p>
           <h1>
-            Curiosity.
-            <br />
-            Built into <em>systems.</em>
+            Hi, I’m <em>Jason.</em>
           </h1>
           <p className="hero-description">
-            I’m Jason Carr. I design experiments, build research systems, and
-            turn measurements into understanding.
+            I’m a physicist and researcher studying electrical and computer
+            engineering. I design experiments, build equipment, and analyze data.
           </p>
           <p className="hero-study">
-            Experimental research · Optoelectronics · Electrical & computer
-            engineering
+            Experimental Research • Optoelectronics • Electrical & Computer Engineering
           </p>
           <div className="actions">
             <Link className="button primary" to="/projects">
@@ -114,7 +112,7 @@ function Home() {
             <span>EXPERIMENTAL SYSTEMS</span>
           </div>
           <div className="hero-photo">
-            <img
+            <ResilientImage
               src={projects[0].image}
               alt={projects[0].alt}
               fetchpriority="high"
@@ -134,20 +132,11 @@ function Home() {
           </div>
         </Link>
       </section>
-      <div className="discipline-strip">
-        <div className="wrap">
-          <span>DESIGN THE EXPERIMENT</span>
-          <i>+</i>
-          <span>BUILD THE SYSTEM</span>
-          <i>+</i>
-          <span>UNDERSTAND THE SIGNAL</span>
-        </div>
-      </div>
       <section className="wrap section">
         <div className="section-heading">
           <div>
             <p className="eyebrow">01 / SELECTED WORK</p>
-            <h2>Ideas, made measurable.</h2>
+            <h2>Some of my work</h2>
           </div>
           <Link className="text-link" to="/projects">
             All projects{" "}
@@ -165,17 +154,14 @@ function Home() {
       <section className="about-band">
         <div className="wrap about-grid">
           <div>
-            <p className="eyebrow">02 / THE ENGINEER BEHIND THE EXPERIMENT</p>
-            <h2>
-              Hands on.
-              <br />
-              <em>Questions open.</em>
-            </h2>
+            <p className="eyebrow">02 / ABOUT ME</p>
+            <h2>I like figuring things out.</h2>
           </div>
           <div>
             <p className="large-copy">
-              My work starts with a question—and often with a bench full of
-              parts.
+              I enjoy learning how things work and finding ways to improve
+              them. That often means building the equipment myself, testing an
+              idea, and working through what the measurements actually show.
             </p>
             <p>
               I’m a physicist and experimental researcher pursuing an M.S. in
@@ -235,12 +221,8 @@ function ContactCallout() {
   return (
     <section className="wrap contact-callout">
       <div>
-        <p className="eyebrow">LET’S BUILD SOMETHING THAT WORKS.</p>
-        <h2>
-          A good question
-          <br />
-          is a good beginning.
-        </h2>
+        <p className="eyebrow">GET IN TOUCH</p>
+        <h2>Have a project in mind?</h2>
         <p>Available for engineering opportunities in Butte and remotely.</p>
       </div>
       <Link className="button primary" to="/contact">
@@ -266,11 +248,7 @@ function Projects() {
   return (
     <section className="wrap section page-top">
       <p className="eyebrow">THE PROJECT INDEX</p>
-      <h1>
-        From the bench.
-        <br />
-        <em>Into understanding.</em>
-      </h1>
+      <h1>Research & projects</h1>
       <p className="page-intro">
         Experiments, materials, and the software that helps make sense of them.
         I was the primary contributor on each project presented here.
@@ -314,7 +292,7 @@ function Gallery({ items }) {
               onClick={() => open([src, caption])}
               aria-label={`Enlarge ${caption}`}
             >
-              <img src={src} alt={caption} loading="lazy" />
+              <ResilientImage src={src} alt={caption} loading="lazy" />
               <span>
                 VIEW FULL IMAGE <Arrow />
               </span>
@@ -339,7 +317,7 @@ function Gallery({ items }) {
         </button>
         {selected && (
           <figure>
-            <img src={selected[0]} alt={selected[1]} />
+            <ResilientImage src={selected[0]} alt={selected[1]} />
             <figcaption>{selected[1]}</figcaption>
             <a href={selected[0]} target="_blank" rel="noreferrer">
               Open original size <Arrow />
@@ -399,9 +377,6 @@ function ProjectDetail() {
               {project.demoLabel || "Open project"} <Arrow />
             </a>
           )}
-          {project.sourceNote && (
-            <p className="source-note">{project.sourceNote}</p>
-          )}
         </aside>
         <div>
           {[
@@ -426,7 +401,7 @@ function ProjectDetail() {
       {project.gallery.length > 0 && (
         <section className="case-gallery">
           <div className="section-heading">
-            <h2>Inside the work.</h2>
+            <h2>Photos & results</h2>
             <span className="mono">IMAGES & RESULTS</span>
           </div>
           <Gallery items={project.gallery} />
@@ -447,16 +422,13 @@ function About() {
   return (
     <section className="wrap section page-top">
       <p className="eyebrow">EXPERIENCE & APPROACH</p>
-      <h1>
-        Build carefully.
-        <br />
-        <em>Keep asking why.</em>
-      </h1>
+      <h1>A little about me</h1>
       <div className="about-grid biography">
         <div>
           <p className="large-copy">
-            Physics gave me a way to ask questions. Engineering gives me more
-            ways to answer them.
+            My background is in physics. I’m continuing my education in
+            electrical and computer engineering because I want to broaden the
+            kinds of problems I can work on.
           </p>
           <p>
             I’m based in Butte, Montana, with a background in experimental
@@ -511,12 +483,19 @@ function About() {
         </div>
       </div>
       <div className="experience-note">
-        <h2>Engineering is a team effort.</h2>
+        <h2>Working with people</h2>
         <p>
           Beyond the laboratory, my experience includes technical customer
           support, team leadership, and field service work. These roles have
-          strengthened how I troubleshoot, explain complex problems, and
-          coordinate work with other people.
+          taught me to listen carefully, explain what I know, and ask for
+          another perspective when I need one.
+        </p>
+        <p>
+          I value clear responsibilities and trust in the people I work with.
+          People bring different strengths to a project, and I think good
+          collaboration gives them room to use those strengths. I also believe
+          that taking responsibility means being willing to question my own
+          assumptions and consider who will be affected by a decision.
         </p>
       </div>
     </section>
@@ -528,11 +507,7 @@ function Contact() {
       <p className="eyebrow">
         <span className="status-dot" /> BUTTE, MT / REMOTE
       </p>
-      <h1>
-        Let’s put curiosity
-        <br />
-        <em>to work.</em>
-      </h1>
+      <h1>Let’s talk</h1>
       <p className="page-intro">
         I’m interested in engineering opportunities where I can contribute to
         experimental systems, test and measurement, optics, and materials
@@ -571,8 +546,8 @@ function Contact() {
 function NotFound() {
   return (
     <section className="wrap section page-top">
-      <p className="eyebrow">404 / OUTSIDE THE FIELD</p>
-      <h1>Let’s recalibrate.</h1>
+      <p className="eyebrow">404 / PAGE NOT FOUND</p>
+      <h1>This page isn’t here.</h1>
       <Link className="button primary" to="/">
         Return home <Arrow />
       </Link>

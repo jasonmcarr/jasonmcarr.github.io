@@ -84,6 +84,7 @@ export default function Terrain({ paused }) {
       </defs>
       <rect width="1440" height="960" fill="url(#elevation-fill)" />
       <g
+        className="terrain-contours"
         fill="none"
         stroke="url(#elevation-lines)"
         strokeWidth=".8"
