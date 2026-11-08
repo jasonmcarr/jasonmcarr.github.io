@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="312 267 626 626">
+  <title>Sage green split shield emblem</title>
+  <defs>
+    <linearGradient id="sage-left" gradientUnits="userSpaceOnUse" x1="0" y1="294" x2="0" y2="873">
+      <stop offset="0" stop-color="#ddf6bb"/>
+      <stop offset="0.18" stop-color="#caeba0"/>
+      <stop offset="0.39" stop-color="#b3de7d"/>
+      <stop offset="0.60" stop-color="#a0d360"/>
+      <stop offset="0.79" stop-color="#8ac543"/>
+      <stop offset="1" stop-color="#76b920"/>
+    </linearGradient>
+    <linearGradient id="sage-right" gradientUnits="userSpaceOnUse" x1="0" y1="294" x2="0" y2="873">
+      <stop offset="0" stop-color="#8fa777"/>
+      <stop offset="0.18" stop-color="#8ba373"/>
+      <stop offset="0.39" stop-color="#7a955e"/>
+      <stop offset="0.60" stop-color="#6b8950"/>
+      <stop offset="0.79" stop-color="#587838"/>
+      <stop offset="1" stop-color="#436721"/>
+    </linearGradient>
+  </defs>
+  <rect x="312" y="267" width="626" height="626" fill="#000000"/>
+  <path d="M387 294 L625 391 L625 873 C493 871 387 763 387 628 Z" fill="url(#sage-left)"/>
+  <path d="M625 391 L862 294 L862 628 C862 763 756 871 625 873 Z" fill="url(#sage-right)"/>
+</svg>
