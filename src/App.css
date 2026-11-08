@@ -1021,6 +1021,14 @@ dialog a {
   .biography {
     margin-top: 35px;
   }
+  /* Keep the final B.S. entry close to the following section on phones. */
+  .timeline > div:last-child {
+    padding-bottom: 8px;
+  }
+  .experience-note {
+    margin-top: 20px;
+    padding-top: 28px;
+  }
   .contact-links {
     gap: 25px;
   }
