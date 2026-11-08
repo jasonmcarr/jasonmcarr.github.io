@@ -1,0 +1,20 @@
+name: Test recovery of published preview
+on:
+  push:
+    branches:
+      - review/recover-published-preview
+permissions:
+  contents: read
+jobs:
+  inspect-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect public preview response
+        run: |
+          set -euo pipefail
+          URL="https://jason-carr-sage-preview.expertcurl5.chatgpt.site/"
+          curl -fLSs --max-time 35 -D /tmp/headers "$URL" -o /tmp/preview.html
+          echo "Downloaded $(wc -c </tmp/preview.html) bytes"
+          head -c 450 /tmp/preview.html
+          echo
+          grep -oE '(/static/[^" ]+|main\.[a-z0-9]+\.(js|css))' /tmp/preview.html | head -20 || true
