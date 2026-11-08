@@ -12,7 +12,7 @@ export const projects = [
   {
     id: "project4",
     number: "01",
-    title: "Holding a particle in place.",
+    title: "Magneto-gravitational trapping",
     name: "Magneto-gravitational trapping",
     category: "Experimental systems",
     tags: ["Vacuum systems", "FFT analysis", "Python"],
@@ -37,12 +37,12 @@ export const projects = [
   },
   {
     id: "materials",
-    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/redesign/sage-instruments/src/components/portfolio/projects.js",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/main/src/components/portfolio/projects.js",
     codeLabel: "View page source on GitHub",
     sourceNote:
       "The linked source contains this research presentation; standalone analysis code is not included.",
     number: "02",
-    title: "From chemistry to crystal.",
+    title: "Crystal growth & microscopy",
     name: "Crystal growth & material characterization",
     category: "Materials & optics",
     tags: ["Crystal growth", "SEM", "Fluorescence"],
@@ -76,7 +76,7 @@ export const projects = [
   {
     id: "project5",
     number: "03",
-    title: "Finding structure in a spectrum.",
+    title: "Thulium fluorescence",
     name: "Thulium fluorescence spectroscopy",
     category: "Materials & optics",
     tags: ["Spectroscopy", "Thin films", "Curve fitting"],
@@ -103,7 +103,7 @@ export const projects = [
   {
     id: "project2",
     number: "04",
-    title: "Measuring the smallest movements.",
+    title: "Brownian motion & optical trapping",
     name: "Brownian motion & optical trapping",
     category: "Experimental systems",
     tags: ["Optical tweezers", "Computer vision", "NumPy"],
@@ -128,7 +128,7 @@ export const projects = [
     sourceNote:
       "The linked source is the research-poster presentation, not a separate analysis package.",
     number: "05",
-    title: "Exploring light as a cooling tool.",
+    title: "Optical cooling research",
     name: "Optical cooling research",
     category: "Materials & optics",
     tags: ["Materials synthesis", "SEM / XRD", "Thermometry"],
@@ -155,7 +155,7 @@ export const projects = [
   {
     id: "project1",
     number: "06",
-    title: "Turning web data into answers.",
+    title: "Expedia flight data",
     name: "Flight-price data pipeline",
     category: "Software & data",
     tags: ["Selenium", "Pandas", "Plotly"],
@@ -176,7 +176,7 @@ export const projects = [
   {
     id: "project3",
     number: "07",
-    title: "Making a global dataset navigable.",
+    title: "COVID-19 dashboard",
     name: "COVID-19 Tableau dashboard",
     category: "Software & data",
     tags: ["Tableau", "Data visualization", "Interactive filtering"],
@@ -203,7 +203,7 @@ export const projects = [
 
   {
     id: "semiconductor-calculator",
-    title: "Making semiconductor equations usable.",
+    title: "Semiconductor equation calculator",
     name: "Semiconductor equations GUI",
     tags: ["Python", "Tkinter", "NumPy"],
     art: "n · p = nᵢ²",
@@ -225,7 +225,7 @@ export const projects = [
   },
   {
     id: "database-pipeline",
-    title: "Giving data a relational structure.",
+    title: "Database design in Python",
     name: "Synthetic retail database pipeline",
     tags: ["PostgreSQL", "Pandas", "Faker"],
     art: "1,000",
@@ -250,7 +250,7 @@ export const projects = [
   },
   {
     id: "tablet-driver-switch",
-    title: "Taking repetition out of setup.",
+    title: "Tablet driver setup",
     name: "Tablet driver switching automation",
     tags: ["Python", "Windows", "Process automation"],
     art: "DETECT → SWITCH",
@@ -271,7 +271,7 @@ export const projects = [
   },
   {
     id: "commander-simulator",
-    title: "Testing decisions with repeatable trials.",
+    title: "Commander game simulator",
     name: "MTG Unified Simulator",
     tags: ["Python", "Monte Carlo", "Reproducibility"],
     art: "SEED → TRIAL → REPORT",
@@ -296,7 +296,7 @@ export const projects = [
   },
   {
     id: "portfolio-engineering",
-    title: "Presenting the work with precision.",
+    title: "This portfolio",
     name: "Engineering portfolio website",
     tags: ["React", "SVG", "Plotly"],
     art: "DESIGN · BUILD · SHARE",
@@ -311,14 +311,14 @@ export const projects = [
       "React routes connect project narratives, source links, image galleries, and Plotly visualizations. SVG contours preserve sharp lines at different screen sizes; motion controls and responsive layouts support accessible viewing.",
     result:
       "A browsable record of laboratory and software projects, with original research photography and direct paths to supporting code.",
-    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/tree/redesign/sage-instruments",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/tree/main",
     number: "12",
     category: "Software & data",
     gallery: [],
   },
   {
     id: "portfolio-archive",
-    title: "An early experiment in presentation.",
+    title: "My first portfolio",
     name: "Original portfolio website",
     tags: ["HTML", "CSS", "JavaScript"],
     art: "HTML / CSS / JS",
@@ -343,7 +343,7 @@ export const projects = [
   },
   {
     id: "rental-reporter",
-    title: "Finding useful signals in listings.",
+    title: "Rental search reports",
     name: "Rental discovery & reporting pipeline",
     tags: ["Python", "BeautifulSoup", "ReportLab"],
     art: "COLLECT → RANK → REPORT",
@@ -357,7 +357,7 @@ export const projects = [
       "Source adapters target Craigslist, Zillow, Redfin, and Apartments.com. Explicit scoring weighs layout, yard, pet language, and location. Normalized addresses and titles reduce duplicates; saved listing keys distinguish new results. ReportLab and HTML templates produce grouped reports, with optional SMTP delivery and a timezone-aware daily loop.",
     result:
       "A complete script for producing prioritized rental summaries. Live collection depends on each source’s markup and availability; source failures are logged so other adapters can continue.",
-    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/redesign/sage-instruments/public/project-code/rental_reporter.py",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/main/public/project-code/rental_reporter.py",
     sourceNote:
       "Based on the supplied message-1.txt script. Personal configuration and email credentials are not published.",
     number: "14",
@@ -366,7 +366,7 @@ export const projects = [
   },
   {
     id: "discord-cleanup",
-    title: "Keeping a conversation space temporary.",
+    title: "Discord message cleanup",
     name: "Discord channel cleanup bot",
     tags: ["Python", "discord.py", "Asyncio"],
     art: "MESSAGE → DELAY → CLEANUP",
@@ -380,7 +380,7 @@ export const projects = [
       "Filters incoming messages by channel name, ignores messages from bots, waits 12 hours, then attempts deletion. A missing-message exception is suppressed when a message has already been removed.",
     result:
       "A concise event-driven prototype. Scheduled deletions live in process memory, so restarts interrupt pending tasks. The portfolio source replaces the embedded credential and server identifiers with environment variables.",
-    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/redesign/sage-instruments/public/project-code/discord_cleanup_bot.py",
+    code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/main/public/project-code/discord_cleanup_bot.py",
     sourceNote:
       "Sanitized source from the supplied bot.py. No bot token is included. Deployment still requires appropriate Discord intents and permissions.",
     number: "15",
