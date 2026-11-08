@@ -46,7 +46,7 @@ export const projects = [
     name: "Crystal growth & material characterization",
     category: "Materials & optics",
     tags: ["Crystal growth", "SEM", "Fluorescence"],
-    image: photo("sem-5652"),
+    image: `${process.env.PUBLIC_URL}/research/sem-5638.webp`,
     alt: "Scanning electron micrograph showing crystalline particle morphology",
     summary:
       "Growing and examining materials through synthesis, electron microscopy, and fluorescence measurements.",
