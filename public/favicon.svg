@@ -18,7 +18,6 @@
       <stop offset="1" stop-color="#436721"/>
     </linearGradient>
   </defs>
-  <rect x="312" y="267" width="626" height="626" fill="#000000"/>
   <path d="M387 294 L625 391 L625 873 C493 871 387 763 387 628 Z" fill="url(#sage-left)"/>
   <path d="M625 391 L862 294 L862 628 C862 763 756 871 625 873 Z" fill="url(#sage-right)"/>
 </svg>
