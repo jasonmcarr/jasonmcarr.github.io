@@ -22,8 +22,4 @@ The `src/` directory holds editable components, styles, project metadata, and vi
 - GitHub Pages serves the production site at **jacecarr.dev**. The `CNAME` file must be retained.
 - React Router uses hash URLs, such as `/#/projects`, for reliable navigation on static hosting.
 
-## Site recovery (November 2026)
-
-This version reconstructs the updated sage portfolio from a browser-saved copy of the published ChatGPT Work preview. The source of that Work project wasn't accessible, so the revised copy, project headings, SVG motion, responsive layout, and image retry logic were reimplemented in the editable React source. The SEM project thumbnail was recovered from the saved asset and optimized for the site. Other existing research images and interactive plots remain in the repository.
-
 The original `redesign/sage-instruments` branch and previous commits are preserved for comparison or rollback.
