@@ -509,9 +509,11 @@ function Contact() {
       </p>
       <h1>Let’s talk</h1>
       <p className="page-intro">
-        I’m interested in engineering opportunities where I can contribute to
-        experimental systems, test and measurement, optics, and materials
-        research.
+        I’m interested in engineering opportunities in power systems,
+        semiconductor process engineering, and network engineering. My background
+        in experimental research, test and measurement, optics, and materials
+        characterization gives me a practical foundation for approaching
+        technical problems across these fields.
       </p>
       <a className="email-link" href={`mailto:${email}`}>
         {email} <Arrow />
