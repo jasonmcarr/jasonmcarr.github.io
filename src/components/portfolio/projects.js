@@ -7,7 +7,7 @@ const fft = `${process.env.PUBLIC_URL}/research/charts/Axial_FFT.png`;
 const quality = `${process.env.PUBLIC_URL}/research/charts/q_avg.png`;
 const spectrum = `${process.env.PUBLIC_URL}/research/charts/fluo_spectra.png`;
 const photo = (name) => `${process.env.PUBLIC_URL}/research/${name}.png`;
-export const resume = `${process.env.PUBLIC_URL}/documents/Jason-Carr-Resume.pdf`;
+export const resume = `${process.env.PUBLIC_URL}/documents/Jason-Carr-Resume.pdf?v=20261108-approved`;
 export const projects = [
   {
     id: "project4",
