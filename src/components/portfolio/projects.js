@@ -22,11 +22,11 @@ export const projects = [
       "An experimental platform for studying levitated particle motion across atmospheric and vacuum conditions.",
     question: "How does a trapped particle move as its environment changes?",
     contribution:
-      "Primary contributor to the experiment and analysis, studying particle trajectories across pressure conditions and interpreting the resulting oscillations.",
+      "I tracked three levitated particles, one at atmospheric pressure, one in rough vacuum, and one in high vacuum. A magnetic quadrupole supports a diamagnetic particle against gravity. That leaves it free to move around an equilibrium point without resting on a surface.",
     method:
-      "Recorded position data were analyzed using Fourier transforms, displacement distributions, model fits, and quality factors. The workflow connects measured motion with physical estimates of particle behavior.",
+      "I plotted each particle’s path in two directions. A Fourier transform separates its position record into frequencies, so a repeated oscillation appears as a peak. I then combined those frequencies with a fit to the distribution of thermal displacements to estimate particle mass.",
     result:
-      "Compared trajectories, oscillation frequencies, and quality factors across pressure conditions, with fitted particle-mass estimates reported in the original analysis.",
+      "The three mass estimates were (4.5 ± 0.6), (6.1 ± 0.5), and (3.8 ± 0.5) nanograms, respectively. Each run tracked a different particle, so the differences between those numbers cannot be attributed to pressure alone. The high-vacuum estimate also depends on how well a thermal-motion model describes a particle that rarely collides with gas molecules.",
     code: "https://github.com/jasonmcarr/MagnetoGravitationalTrap",
     gallery: [
       [trapDiagram, "Magnetic quadrupole trap geometry"],
@@ -53,11 +53,11 @@ export const projects = [
     question:
       "How do growth conditions and composition appear in a material’s structure and optical response?",
     contribution:
-      "Primary contributor to the research. Grew Eu:YVO₄ crystals and investigated rare-earth-doped materials using microscopy and fluorescence, alongside laboratory crystal-growth and characterization work.",
+      "I grew europium-doped yttrium vanadate crystals and synthesized europium-doped vaterite, a crystalline form of calcium carbonate. I wanted to see both the shapes that formed during growth and where they emitted light under excitation.",
     method:
-      "Examined Er:YVO₄ crystals under normal and UV illumination. Synthesized europium-doped vaterite particles and observed their fluorescence. Used SEM imagery to examine morphology across compositions.",
+      "I compared ordinary microscope images with images taken under ultraviolet illumination. The erbium-doped yttrium vanadate images show the same recognizable crystal edges under both conditions. For finer surface detail, I used scanning electron microscopy, which makes it possible to see facets, rounded grains, and clusters that blend together in the optical images.",
     result:
-      "Produced a visual record linking materials preparation with morphology and optical response. The SEM photographs show multiple compositions; individual material identities and magnifications are not assigned where the source captions omit them.",
+      "The paired images show where fluorescence is concentrated relative to the visible crystals and particle clusters. The electron micrographs answer a different question about shape. I kept the original sample labels with the photographs because similar-looking grains can have different compositions.",
     gallery: [
       [
         photo("eu-yvo4-grown-crystal"),
@@ -87,11 +87,11 @@ export const projects = [
     question:
       "What can the shape of an emission spectrum reveal about a material?",
     contribution:
-      "Primary contributor to the experiment and analysis, combining optical measurement with spectral fitting to characterize a thulium thin-film system.",
+      "I measured light emitted by a 20 nm thulium film on magnesium-oxide-doped lithium niobate. The challenge was to pick out overlapping features in one broad emission band while keeping scattered light from the excitation laser out of the measurement.",
     method:
-      "Measured a magnesium-oxide-doped lithium niobate crystal with a 20 nm thulium film. A 670 nm excitation laser, optical filters, and an Ocean Optics spectrometer formed the measurement chain. Component profiles were combined into a cumulative Voigt fit.",
+      "I excited the sample with a 670 nm laser and collected light through a 750 nm long-pass filter and a 900 nm short-pass filter. That pair passes the wavelength range of interest to an Ocean Optics spectrometer. I modeled the recorded band as a sum of Voigt profiles, a peak shape that combines Gaussian and Lorentzian broadening.",
     result:
-      "Resolved the measured spectrum into fitted components for interpretation of the material’s optical response.",
+      "The plot shows the measured spectrum alongside the individual fitted peaks and their sum. Comparing the sum with the data shows how well the model reproduces the band. Seeing the components separately also makes it easier to identify features that would be hard to locate by eye in the combined signal.",
     code: "https://github.com/jasonmcarr/ThuliumFluorescenceSpectrum",
     gallery: [
       [
@@ -112,11 +112,11 @@ export const projects = [
     question:
       "How can image sequences quantify the motion of an optically trapped particle?",
     contribution:
-      "Primary contributor to the experiment and analysis, using optical trapping and Python image processing to extract transverse and vertical particle motion.",
+      "I used a tightly focused laser to hold a polystyrene microsphere in view while it moved in response to collisions with the surrounding fluid. The light draws the sphere toward the focus and supplies a restoring force when it wanders away.",
     method:
-      "A single-beam optical tweezer confines a dielectric particle near the laser focus. Computer-vision analysis of 5,000 images produces position data for statistical analysis with NumPy and Pandas.",
+      "I recorded 5,000 microscope images and used Python image processing to extract the particle’s position along two axes. Plotting successive positions shows its path. Grouping the same measurements into histograms shows how often it occupied each position, which is easier to compare across the two directions.",
     result:
-      "Connected image-derived motion to estimates of particle properties and trap behavior. The original measurements can be explored in the interactive plots below.",
+      "From the measured radius of 1.72 micrometers and the density of polystyrene, I estimated a mass of 2.25 × 10⁻¹⁴ kg. My analysis gave a trap stiffness of about 1.14 × 10⁻⁵ N/m. Stiffness describes how strongly the trap pulls the particle back for a given displacement. The interactive plots show the motion behind those estimates.",
     code: "https://github.com/jasonmcarr/OpticalTrap",
     plots: "optical",
     gallery: [],
@@ -140,11 +140,11 @@ export const projects = [
     question:
       "How can material preparation and optical measurements support solid-state cooling research?",
     contribution:
-      "Primary contributor to the research presented with C. W. Thiel and P. J. T. Woodburn at Montana State University.",
+      "At Montana State University, I worked with C. W. Thiel and P. J. T. Woodburn on materials for optical refrigeration. The underlying idea is that a crystal can lose heat if the light it emits carries away more energy than the light it absorbs. My part of the work brought together crystal growth, structural measurements, and an optical way to read temperature.",
     method:
-      "Investigated crystal-growth methods, characterized materials with scanning electron microscopy and X-ray diffraction, and measured temperature-dependent fluorescence in Yb:YAG.",
+      "We compared batches of ytterbium-doped yttrium aluminum garnet (Yb:YAG) prepared by co-precipitation. Electron microscopy showed how individual grains grew or clumped together. X-ray diffraction let us check their crystal structure. For thermometry, we compared the intensities of two ytterbium emission features as the sample temperature changed.",
     result:
-      "Documented growth procedures, microscopy, diffraction results, and fluorescence thermometry in a research poster.",
+      "The poster records how changes in preparation affected grain size and separation, alongside the diffraction and fluorescence measurements. The intensity ratio gave us a way to study temperature through the light leaving the sample, a measurement needed to evaluate a candidate cooling material.",
     gallery: [
       [
         poster,
@@ -164,11 +164,11 @@ export const projects = [
     question:
       "What pricing patterns emerge from Expedia’s selected flight listings?",
     contribution:
-      "Primary contributor. Built a Python workflow to collect listings, structure the results, analyze patterns, and present interactive charts.",
+      "I built a Python collector to answer a question I had when comparing flights: did the airline that appeared most often in Expedia’s recommendations also tend to have the lowest fare? I kept the search to one route and collected the five flights Expedia ranked “best” for each search.",
     method:
-      "Used Selenium and BeautifulSoup to collect the five flights ranked “best” by Expedia for the selected searches. Exported the data to CSV, analyzed it with Pandas, and visualized it with Plotly.",
+      "Selenium loaded the results and BeautifulSoup extracted airline, fare, departure date, and departure time. I saved those fields to CSV, grouped them in Pandas, and used Plotly to compare average prices with how frequently each carrier appeared in the recommendations.",
     result:
-      "Compared airline averages and time-dependent prices within the sampled route and date range. The findings describe this collected sample.",
+      "Delta accounted for 43% of the sampled listings and United for 40%. United generally had the cheapest available fare on this route, while Delta offered the widest range of departure times. Those are two different reasons a flight might appeal to a traveler. Both findings describe the recommended listings collected for this route.",
     code: "https://github.com/jasonmcarr/ExpediaWebscraper",
     plots: "flights",
     gallery: [],
@@ -186,11 +186,11 @@ export const projects = [
       "An interactive dashboard for exploring geographic and temporal patterns in pandemic data.",
     question: "How can a large public-health dataset become easier to explore?",
     contribution:
-      "Primary contributor. Developed an interactive Tableau dashboard that lets viewers explore data through date and geographic filters.",
+      "I built a Tableau dashboard for exploring the first year of COVID-19 data, with particular attention to vaccination rates. I wanted a reader looking at a global figure to be able to narrow the question to a particular place and period.",
     method:
-      "Organized the dashboard around country, continent, and date selection, with views highlighting vaccination data and comparative trends.",
+      "I connected date-range, continent, and country filters to the dashboard views. A reader can first choose a time window, then narrow the geography while keeping that window fixed. The comparative chart gives a second view of the selected data alongside the geographic overview.",
     result:
-      "Created a navigable visual interface that makes geographic comparisons and time filtering available to viewers.",
+      "The dashboard makes it possible to ask a specific question, such as how the reported vaccination figures compare across countries during the same period. The embedded images show the overall layout, and the linked Tableau workbook lets the reader try a different selection.",
     code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/main/src/components/projects/pandemicTracker.jsx",
     codeLabel: "View integration on GitHub",
     demo: "https://public.tableau.com/views/coviddashboard_16748574137170/CovidTrackerDashboard1",
@@ -213,11 +213,11 @@ export const projects = [
     question:
       "How can a library of semiconductor equations become easier to explore?",
     contribution:
-      "Built the equation library and desktop interface, connecting semiconductor physics calculations with a searchable GUI.",
+      "I built a desktop calculator for the semiconductor equations I was working through. I wanted to look up a quantity such as carrier concentration, see which inputs it requires, and evaluate it without having to remember a Python function name or argument order.",
     method:
-      "Python introspection extracts functions and parameter descriptions from docstrings. Tkinter and ttkbootstrap generate input fields, while NumPy implements carrier concentrations, Fermi levels, charge neutrality, recombination, and related equations.",
+      "I kept the equations in a Python module and used NumPy for the calculations. The interface inspects each function’s parameters and reads its documentation to build the corresponding input form. Tkinter and ttkbootstrap handle the searchable desktop interface. The library includes Fermi-level, charge-neutrality, and recombination calculations.",
     result:
-      "A reusable desktop study tool whose interface is driven by the underlying functions. The repository includes the GUI and equation module; it is an educational calculator rather than a validated device simulator.",
+      "Keeping each equation and its input definitions together made it easier to extend the calculator. When a documented function is added to the library, the interface can build its form from that definition. I can work through a numerical example and then inspect the exact expression used to calculate it.",
     code: "https://github.com/jasonmcarr/Semiconductor-Eq-GUI",
     number: "08",
     category: "Software & data",
@@ -235,11 +235,11 @@ export const projects = [
     question:
       "How can a flat synthetic dataset become a structured relational database?",
     contribution:
-      "Created the synthetic-data generator, CSV transformation workflow, and SQL schema in the DatabaseMachineLearning repository.",
+      "I built a small camera-retail dataset to practice relational database design. A flat sales file tends to repeat a customer’s name and address for every item they buy. I wanted to separate those records while keeping enough information to put an order back together.",
     method:
-      "Faker generates 1,000 profiles. Python combines profiles with camera and lens products, prices, and order identifiers. Pandas exports separate order, item, customer, and address files; PostgreSQL definitions connect tables using row identifiers.",
+      "I generated 1,000 synthetic profiles with Faker, then combined them with camera and lens products, prices, and order identifiers. A Pandas transformation writes separate customer, address, order, and item files. The PostgreSQL schema uses identifiers to link the records across tables.",
     result:
-      "An inspectable data-preparation and schema-design project. The current repository contains generation and database setup, rather than a trained machine-learning model.",
+      "The resulting tables support questions at different levels. An order identifies a purchase, its item records describe what was bought, and the customer record identifies who placed it. Using synthetic profiles also makes it possible to inspect and share examples without exposing real customer information.",
     code: "https://github.com/jasonmcarr/DatabaseMachineLearning",
     number: "09",
     category: "Software & data",
@@ -259,11 +259,11 @@ export const projects = [
       "A Windows utility that watches for a tablet-related process and coordinates switching to OpenTabletDriver.",
     question: "How can a recurring pen-tablet setup sequence be automated?",
     contribution:
-      "Wrote the process-monitoring script and supporting Windows batch files for a personal tablet workflow.",
+      "I wrote a Windows utility for a pen-tablet setup that involved closing the Wacom interface and starting OpenTabletDriver. Repeating that sequence by hand made a simple driver change depend on remembering which applications were already running.",
     method:
-      "Polls Windows task lists for TabTip.exe, runs a driver-control batch file, closes Wacom Center, and starts the OpenTabletDriver daemon and interface when needed. Uses psutil, subprocess, and window management to coordinate the sequence.",
+      "The Python script polls the Windows process list for TabTip.exe. When it detects the configured condition, it calls a batch file for driver control, closes Wacom Center, and starts the OpenTabletDriver daemon and user interface as needed. The daemon handles driver work in the background while the interface exposes its controls.",
     result:
-      "A focused desktop utility that replaces repeated manual setup actions. Paths and driver names are specific to the configured Windows installation.",
+      "The script turns the process state into a repeatable startup sequence on my machine. It also makes the installation-specific parts easy to identify: someone adapting it to another Windows setup would need to check the executable paths and process names against that installation.",
     code: "https://github.com/jasonmcarr/Tablet-Driver-Switch-Script",
     number: "10",
     category: "Software & data",
@@ -273,7 +273,7 @@ export const projects = [
     id: "commander-simulator",
     title: "Commander game simulator",
     name: "MTG Unified Simulator",
-    tags: ["Python", "Monte Carlo", "Reproducibility"],
+    tags: ["Rust", "Monte Carlo", "Reproducibility"],
     art: "SEED → TRIAL → REPORT",
     artCaption: "SIMULATION ENGINE",
     summary:
@@ -281,11 +281,11 @@ export const projects = [
     question:
       "How can deck comparisons use consistent assumptions and repeatable measurements?",
     contribution:
-      "Developed a shared simulation framework for deck studies, with recorded seeds, deck fingerprints, policies, and engine versions.",
+      "I built a simulator to compare Commander decks across repeated opening hands and turns. A “goldfish” trial plays one deck without an opponent. That makes it possible to study a narrow question, such as how often a deck can produce the mana to cast its commander by a chosen turn.",
     method:
-      "Models a defined subset of mana, mulligans, commander deployment, and card effects. Runs repeated trials, reports milestone rates with Wilson confidence intervals, and supports extensible rule modules and regression tests.",
+      "The engine follows a specified mulligan and play policy and resolves the card interactions it supports. Each run records the random seed, deck fingerprint, and engine version so I can reproduce a result after changing a card or a rule. Repeated trials produce milestone rates with Wilson confidence intervals, which show the sampling uncertainty around each rate.",
     result:
-      "An experimental simulation baseline with CLI workflows and test coverage. Unmodeled cards are rejected by default; opponents and the complete Magic rules engine are outside the current baseline.",
+      "I can compare two deck configurations using the same assumptions and investigate the trials where a deck misses its target. The result measures the modeled sequence, such as casting a commander on time. It does not estimate a win rate against other players. Unsupported cards are flagged so their effects do not silently disappear from a comparison.",
     code: "https://github.com/jasonmcarr/mtg-unified-simulator",
     number: "11",
     category: "Software & data",
@@ -306,11 +306,11 @@ export const projects = [
     question:
       "How can technical work remain rigorous while being easy to explore?",
     contribution:
-      "Built and iterated the portfolio around experiment design, system construction, and data analysis, with a unified sage visual theme.",
+      "I rebuilt this site around the material I most wanted people to see: photographs of the apparatus, the measurements it produced, and the code I used to analyze them. For a research project, the reader can move from a short description of the experiment directly to the relevant figure.",
     method:
-      "React routes connect project narratives, source links, image galleries, and Plotly visualizations. SVG contours preserve sharp lines at different screen sizes; motion controls and responsive layouts support accessible viewing.",
+      "React renders the project pages from a shared set of records containing the narrative, gallery, and source links. The Brownian-motion and flight pages also load interactive Plotly charts. I drew the background contours as SVG paths so the lines stay sharp as the layout changes, and included a control to pause their motion.",
     result:
-      "A browsable record of laboratory and software projects, with original research photography and direct paths to supporting code.",
+      "A new project can use the existing page layout while bringing its own evidence, whether that is a micrograph, a dataset, or a software repository. The production build is served through GitHub Pages, and each project has a direct link that also works when opened on its own.",
     code: "https://github.com/jasonmcarr/jasonmcarr.github.io/tree/main",
     number: "12",
     category: "Software & data",
@@ -328,11 +328,11 @@ export const projects = [
     question:
       "How can a personal website bring project work into one coherent place?",
     contribution:
-      "Created the early multi-page portfolio, including project, about, and contact pages and visual experiments.",
+      "My first portfolio was a collection of standalone pages for my projects, background, and contact information. Building a separate page for each section gave me room to try different layouts for introductions, longer project descriptions, and supporting images.",
     method:
-      "Used standalone HTML pages, page-specific CSS, and JavaScript sketches. The repository also contains a test environment for visual iteration.",
+      "I built the pages with HTML and page-specific CSS, and used JavaScript sketches to experiment with animated visuals. A separate test environment gave me somewhere to adjust those experiments before putting them into the portfolio.",
     result:
-      "An archived predecessor that documents the portfolio’s evolution from a static multi-page site to the current React implementation.",
+      "The archive preserves the early layout and visual experiments. In the current portfolio I still use the same progression from a physical or practical question to a figure or result. Moving the common layout into React made it easier to keep that structure consistent as the number of projects grew.",
     code: "https://github.com/jasonmcarr/PortfolioWebsite",
     number: "13",
     category: "Software & data",
@@ -352,11 +352,11 @@ export const projects = [
       "A configurable pipeline that collects rental listings, scores their fit, removes duplicates, and produces email-ready reports.",
     question: "How can recurring housing searches become easier to review?",
     contribution:
-      "Built the rental-reporting script supplied with this portfolio, covering collection, ranking, persistence, reporting, and scheduling.",
+      "I wrote a rental-search script because the same home can turn up on several sites, sometimes under different titles. I wanted a daily report that would surface newly seen listings and explain which ones fit my priorities well enough to look at first.",
     method:
-      "Source adapters target Craigslist, Zillow, Redfin, and Apartments.com. Explicit scoring weighs layout, yard, pet language, and location. Normalized addresses and titles reduce duplicates; saved listing keys distinguish new results. ReportLab and HTML templates produce grouped reports, with optional SMTP delivery and a timezone-aware daily loop.",
+      "Separate collectors read listings from Craigslist, Zillow, Redfin, and Apartments.com. The script scores clues such as layout, yard, pet policy, and location, then normalizes addresses to identify repeat listings. It saves identifiers between runs and falls back to a cleaned URL or title when an address is missing.",
     result:
-      "A complete script for producing prioritized rental summaries. Live collection depends on each source’s markup and availability; source failures are logged so other adapters can continue.",
+      "Each run produces an HTML report and a PDF, with optional email delivery. Previously seen listings remain available as fallback results. Collection errors are handled per source, so a change to one site can leave a partial report instead of preventing the other sources from being reviewed.",
     code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/main/public/project-code/rental_reporter.py",
     sourceNote:
       "Based on the supplied message-1.txt script. Personal configuration and email credentials are not published.",
@@ -375,11 +375,11 @@ export const projects = [
       "A small asynchronous bot prototype for removing messages from a designated Discord text channel after a delay.",
     question: "How can a selected channel keep only recent conversation?",
     contribution:
-      "Created a channel-specific cleanup prototype using Discord events and asynchronous delays.",
+      "I built a Discord bot for a text channel used alongside voice chat, where a message can be useful during a conversation and have little value the next day. I wanted a retention rule for that one channel while leaving the rest of the server alone.",
     method:
-      "Filters incoming messages by channel name, ignores messages from bots, waits 12 hours, then attempts deletion. A missing-message exception is suppressed when a message has already been removed.",
+      "The bot listens for a new-message event, checks the channel name, and skips messages posted by bots. For each eligible message it starts a 12-hour asynchronous wait. Other messages can be processed during that wait. When the timer expires, the bot asks Discord to delete that specific message and handles the case where someone has already removed it.",
     result:
-      "A concise event-driven prototype. Scheduled deletions live in process memory, so restarts interrupt pending tasks. The portfolio source replaces the embedded credential and server identifiers with environment variables.",
+      "That design gives each message its own expiration time without periodically scanning the channel history. The tradeoff is that timers live in memory. If the bot restarts, it can handle new arrivals immediately, but messages that were waiting before the restart lose their pending deletion.",
     code: "https://github.com/jasonmcarr/jasonmcarr.github.io/blob/main/public/project-code/discord_cleanup_bot.py",
     sourceNote:
       "Sanitized source from the supplied bot.py. No bot token is included. Deployment still requires appropriate Discord intents and permissions.",
@@ -398,9 +398,12 @@ export const projects = [
     artCaption: "TANGO DJ SOFTWARE",
     summary: "A desktop DJ app I’m building for Lela to organize music and run Argentine tango dance evenings.",
     question: "How can a tango DJ adjust the music during a milonga?",
-    contribution: "I’m developing Tandela for Windows and macOS around the way Lela prepares and plays music for dancers.",
-    method: "Tango DJs play groups of songs called tandas, with a short musical break called a cortina between groups. Tandela lets the DJ organize local recordings, save reusable tandas, and arrange them into a playlist.",
-    result: "A DJ can prepare sets ahead of time and adjust their order during the evening. Linked tandas keep repeated placements consistent when a saved set changes.",
+    contribution:
+      "I’m building Tandela for Lela to use when she DJs Argentine tango. At a milonga, the DJ plays a group of songs called a tanda, followed by a short musical break called a cortina. I wanted her to be able to prepare an evening around those groups and still change the order when she sees what the dancers respond to.",
+    method:
+      "The desktop app uses Rust and Slint for its shared Windows and macOS implementation. It separates a local recording, a reusable tanda, and a placement of that tanda in a playlist. That distinction matters when the same set appears in several playlists: the DJ can edit its shared definition without having to track down and update each copy.",
+    result:
+      "Lela can organize recordings into sets ahead of time and arrange those sets for a particular evening. During planning, moving a tanda keeps the group together. Editing a linked tanda keeps its placements consistent across playlists, so a correction made while preparing one event carries through to the next.",
     code: "https://github.com/jasonmcarr/tango-dj-software",
     codeLabel: "View GitHub (private)",
     gallery: [],
