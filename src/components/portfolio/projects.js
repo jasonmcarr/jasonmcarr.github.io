@@ -1,3 +1,4 @@
+import codeScreen from "../../assets/images/portfolio/code-screen.svg?no-inline";
 import dashboardCover from "../../assets/images/portfolio/dashboardCover.webp";
 import chamberCover from "../../assets/images/portfolio/chamberCover.webp";
 import trapCover from "../../assets/images/portfolio/trapCover.webp";
@@ -332,8 +333,9 @@ export const projects = [
     title: "This portfolio",
     name: "Engineering portfolio website",
     tags: ["React", "SVG", "Plotly"],
-    art: "DESIGN · BUILD · SHARE",
-    artCaption: "THIS PORTFOLIO",
+    image: codeScreen,
+    alt: "Sage outline of a desktop monitor displaying a code editor",
+    imageFit: "contain",
     summary:
       "A responsive portfolio combining research case studies, interactive data, and a custom vector topographic background.",
     question:
