@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320" fill="none">
+  <title>A plane crossing a folded map along a dotted flight path</title>
+  <g stroke="#b1cf9f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <g transform="translate(10 8)">
+      <path d="m98 98 136-34 141 37 135-38 21 171-143 39-144-38-126 35z" fill="#18251e"/>
+      <g stroke="#64836e" stroke-width="1.5">
+        <path d="m234 64 10 171m131-134 13 172"/>
+        <path d="m106 148 53-12 16-25 36-8 17-20m-111 144 64-19 36 7 23-14m12-104 24 24 37 2 10 25 30 14 29-5m18-46 28 12 31-14 15-25 28 2m-109 139 25-22 31-2 15-19 58-14"/>
+        <path d="m150 260 8-21 31-10 10-20m76 31 17-23 25-4 20-26m109 72 22-30 29-9"/>
+      </g>
+      <path d="M148 187C177 137 234 133 253 157s-12 49-30 30c-17-22 49-70 119-72" stroke-dasharray="4 8"/>
+      <circle cx="147" cy="189" r="5" fill="#b1cf9f"/>
+      <g transform="translate(374 111) rotate(-15)">
+        <path d="M48 0 Q45 -4 36 -4 H10 L-16 -36 L-24 -37 L-9 -4 L-32 -3 L-43 -14 L-48 -14 L-42 0 L-48 14 L-43 14 L-32 3 L-9 4 L-24 37 L-16 36 L10 4 H36 Q45 4 48 0 Z" fill="#25372d" stroke="#dce8cf"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320" fill="none">
+  <title>Camera retail schema linking customers, orders, and order items</title>
+  <g stroke="#b1cf9f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <g stroke="#81a58d"><path d="M186 151h50m-42-6v12m34-6 8-7m-8 7 8 7M385 151h50m-42-6v12m34-6 8-7m-8 7 8 7"/></g>
+    <rect x="45" y="100" width="141" height="82" rx="5" fill="#17231e"/><path d="M45 131h141" stroke="#698b78"/><g font-family="monospace" stroke="none" fill="#dce8cf"><text x="57" y="121" font-size="14">CUSTOMER</text><text x="57" y="152" font-size="12" fill="#adc1ac">customer_id</text><text x="57" y="174" font-size="12" fill="#adc1ac">name</text></g><rect x="236" y="89" width="149" height="104" rx="5" fill="#17231e"/><path d="M236 120h149" stroke="#698b78"/><g font-family="monospace" stroke="none" fill="#dce8cf"><text x="248" y="110" font-size="14">ORDER</text><text x="248" y="141" font-size="12" fill="#adc1ac">order_id</text><text x="248" y="163" font-size="12" fill="#adc1ac">customer_id</text><text x="248" y="185" font-size="12" fill="#adc1ac">date</text></g><rect x="435" y="89" width="158" height="104" rx="5" fill="#17231e"/><path d="M435 120h158" stroke="#698b78"/><g font-family="monospace" stroke="none" fill="#dce8cf"><text x="447" y="110" font-size="14">ORDER ITEM</text><text x="447" y="141" font-size="12" fill="#adc1ac">order_id</text><text x="447" y="163" font-size="12" fill="#adc1ac">camera / lens</text><text x="447" y="185" font-size="12" fill="#adc1ac">price</text></g>
+  </g>
+</svg>
