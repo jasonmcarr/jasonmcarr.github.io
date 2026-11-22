@@ -26,7 +26,7 @@ const centeredArtwork = new Set([
 
 function ProjectArtwork({ project, loading }) {
   return project.image ? (
-    <ResilientImage src={project.image} alt={project.alt} loading={loading} />
+    <ResilientImage src={project.image} alt={project.alt} style={project.imageFit ? { objectFit: project.imageFit, background: "var(--bg)" } : undefined} loading={loading} />
   ) : (
     <div className="data-art" aria-hidden="true">
       <span style={centeredArtwork.has(project.id) ? { textAlign: "center" } : undefined}>

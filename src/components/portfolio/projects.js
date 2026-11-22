@@ -1,3 +1,5 @@
+import originalSite from "../../assets/images/portfolio/original-site.webp";
+import opticalWaist from "../../assets/images/portfolio/optical-waist.svg";
 import trapDiagram from "../../assets/images/project2/trap_diagram.png";
 import poster from "../../assets/images/project6/optical-cooling.png";
 import dashboard from "../../assets/images/project3/tracker-home.png";
@@ -104,6 +106,9 @@ export const projects = [
   },
   {
     id: "project2",
+    image: opticalWaist,
+    alt: "Horizontal optical trap diagram showing the beam waist, trapped particle, and Rayleigh range",
+    imageFit: "contain",
     number: "04",
     title: "Brownian motion & optical trapping",
     name: "Brownian motion & optical trapping",
@@ -320,6 +325,9 @@ export const projects = [
   },
   {
     id: "portfolio-archive",
+    image: originalSite,
+    alt: "Sage-tinted screenshot of my original portfolio with its navigation and About text",
+    imageFit: "contain",
     title: "My first portfolio",
     name: "Original portfolio website",
     tags: ["HTML", "CSS", "JavaScript"],
