@@ -359,6 +359,7 @@ p + p {
   gap: 24px;
 }
 .project-card {
+  --card-inset: 26px;
   display: block;
   border: 1px solid var(--line);
   background: #151e19e8;
@@ -391,7 +392,7 @@ p + p {
   color: #dbe4d8;
 }
 .card-info {
-  padding: 26px;
+  padding: var(--card-inset);
 }
 .card-info h3 {
   margin: 10px 0 15px;
@@ -428,8 +429,8 @@ p + p {
 .featured-card .card-image img {
   height: 475px;
 }
-.featured-card .card-info {
-  padding: 32px;
+.featured-card {
+  --card-inset: 32px;
 }
 .featured-card h3 {
   font-size: 42px;
@@ -442,8 +443,8 @@ p + p {
   height: 100%;
   min-height: 310px;
 }
-.featured-grid > .project-card:not(.featured-card) .card-info {
-  padding: 25px;
+.featured-grid > .project-card:not(.featured-card) {
+  --card-inset: 25px;
 }
 .featured-grid > .project-card:not(.featured-card) h3 {
   font-size: 29px;
@@ -572,6 +573,7 @@ p + p {
   height: 310px;
 }
 .data-art {
+  padding-inline: var(--card-inset);
   height: 310px;
   display: flex;
   flex-direction: column;
@@ -584,6 +586,8 @@ p + p {
   color: var(--sage);
 }
 .data-art span {
+  align-self: stretch;
+  overflow-wrap: anywhere;
   font-family: "Barlow Condensed", sans-serif;
   font-size: 62px;
   font-weight: 300;
@@ -700,7 +704,10 @@ p + p {
   margin-bottom: 10px;
 }
 .biography {
-  margin-top: 60px;
+  margin-top: 22px;
+}
+.biography h1 {
+  margin-bottom: 60px;
 }
 .biography .button {
   margin-top: 30px;
@@ -945,8 +952,8 @@ dialog a {
   .featured-grid > .project-card:not(.featured-card) .card-image img {
     height: 270px;
   }
-  .featured-card .card-info {
-    padding: 26px;
+  .featured-card {
+    --card-inset: 26px;
   }
   .featured-card h3 {
     font-size: 33px;
@@ -1020,8 +1027,9 @@ dialog a {
   .research-plots figure {
     padding: 8px;
   }
-  .biography {
-    margin-top: 35px;
+  .biography h1 {
+    font-size: 62px;
+    margin-bottom: 35px;
   }
   /* Keep the final B.S. entry close to the following section on phones. */
   .timeline > div:last-child {
@@ -1215,7 +1223,8 @@ img[src*="/research/sem-"] {
 
 .about-portrait {
   display: block;
-  width: min(100%, 290px);
+  width: min(100%, 470px);
+  filter: drop-shadow(0 2px 0 var(--sage));
   height: auto;
   margin: 0 auto 24px;
 }

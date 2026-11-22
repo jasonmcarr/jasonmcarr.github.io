@@ -422,9 +422,9 @@ function About() {
   return (
     <section className="wrap section page-top">
       <p className="eyebrow">EXPERIENCE & APPROACH</p>
-      <h1>A little about me</h1>
       <div className="about-grid biography">
         <div>
+          <h1>A little about me</h1>
           <p className="large-copy">
             My background is in physics. I’m continuing my education in
             electrical and computer engineering because I want to broaden the
