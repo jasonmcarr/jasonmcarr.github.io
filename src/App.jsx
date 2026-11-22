@@ -460,7 +460,7 @@ function About() {
           <img className="about-portrait" src="/research/jason-carr.webp" width="700" height="596" alt="Jason Carr" />
           {[
             [
-              "2024 — PRESENT",
+              "2025 — PRESENT",
               "M.S. in Electrical & Computer Engineering",
               "University of Colorado Boulder · In progress",
             ],
