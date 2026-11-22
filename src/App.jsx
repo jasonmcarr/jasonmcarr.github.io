@@ -73,72 +73,107 @@ function ProjectCard({ project, featured = false }) {
     </Link>
   );
 }
-function FieldNotes() {
-  const [index, setIndex] = useState(0);
-  const [playing, setPlaying] = useState(
-    () => !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+function FieldNoteSlide({ project, className, onAnimationEnd, hidden }) {
+  return (
+    <div className={className} aria-hidden={hidden} onAnimationEnd={onAnimationEnd}>
+      <div className="hero-photo">
+        <ProjectArtwork project={project} />
+        <span className="crosshair top-left" />
+        <span className="crosshair bottom-right" />
+      </div>
+      <div className="instrument-caption">
+        <span>{project.fieldLabel || project.tags[0]}<br />
+          <strong>{project.fieldTitle || project.name}</strong>
+        </span>
+        <span className="round-arrow"><Arrow /></span>
+      </div>
+    </div>
   );
+}
+
+function shuffleFieldNotes() {
+  const order = projects.map((_, index) => index);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return order;
+}
+
+function FieldNotes() {
+  const [initialOrder] = useState(shuffleFieldNotes);
+  const sequence = useRef({ order: initialOrder, position: 0 });
+  const [slide, setSlide] = useState({ index: initialOrder[0], previous: null, direction: 1 });
   const [hovered, setHovered] = useState(false);
-  const project = projects[index];
+  const project = projects[slide.index];
+
+  function step(direction) {
+    const cursor = sequence.current;
+    const previous = cursor.order[cursor.position];
+    cursor.position += direction;
+    if (cursor.position < 0 || cursor.position === cursor.order.length) {
+      const nextRound = shuffleFieldNotes();
+      const edge = direction > 0 ? 0 : nextRound.length - 1;
+      if (nextRound[edge] === previous) {
+        [nextRound[edge], nextRound[edge + direction]] = [nextRound[edge + direction], nextRound[edge]];
+      }
+      // Keep one adjacent round so reversing direction retraces recent slides.
+      if (direction > 0) {
+        cursor.order = cursor.order.slice(-projects.length).concat(nextRound);
+        cursor.position = projects.length;
+      } else {
+        cursor.order = nextRound.concat(cursor.order.slice(0, projects.length));
+        cursor.position = projects.length - 1;
+      }
+    }
+    setSlide({ index: cursor.order[cursor.position], previous, direction });
+  }
 
   useEffect(() => {
-    if (!playing || hovered || projects.length < 2) return;
-    const desktop = window.matchMedia("(min-width: 761px)");
-    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (hovered || projects.length < 2) return;
+    const autoplay = window.matchMedia("(min-width: 761px) and (prefers-reduced-motion: no-preference)");
     let timer;
     function sync() {
       window.clearInterval(timer);
-      if (desktop.matches && !document.hidden) {
-        timer = window.setInterval(() => setIndex(i => (i + 1) % projects.length), 7000);
+      if (autoplay.matches && !document.hidden) {
+        timer = window.setInterval(() => step(1), 7000);
       }
     }
-    function motionChanged() {
-      if (motion.matches) setPlaying(false);
-    }
     sync();
-    desktop.addEventListener("change", sync);
-    motion.addEventListener("change", motionChanged);
+    autoplay.addEventListener("change", sync);
     document.addEventListener("visibilitychange", sync);
     return () => {
       window.clearInterval(timer);
-      desktop.removeEventListener("change", sync);
-      motion.removeEventListener("change", motionChanged);
+      autoplay.removeEventListener("change", sync);
       document.removeEventListener("visibilitychange", sync);
     };
-  }, [playing, hovered]);
-
-  function step(offset) {
-    setPlaying(false);
-    setIndex(i => (i + offset + projects.length) % projects.length);
-  }
+  }, [hovered]);
 
   if (!project) return null;
   return (
     <section className="hero-instrument" aria-label="Field notes" aria-roledescription="carousel"
-      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-      onFocusCapture={event => { if (event.target.matches(":focus-visible")) setPlaying(false); }}>
+      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
       <div className="instrument-label">
-        <span>FIELD NOTES / {String(index + 1).padStart(3, "0")}</span>
+        <span>FIELD NOTES / {String(slide.index + 1).padStart(3, "0")}</span>
         <span>{project.category.toUpperCase()}</span>
       </div>
-      <Link to={`/projects/${project.id}`} aria-label={`Explore ${project.name}`}>
-        <div className="hero-photo">
-          <ProjectArtwork key={project.id} project={project} />
-          <span className="crosshair top-left" />
-          <span className="crosshair bottom-right" />
-        </div>
-        <div className="instrument-caption">
-          <span>{project.fieldLabel || project.tags[0]}<br />
-            <strong>{project.fieldTitle || project.name}</strong>
-          </span>
-          <span className="round-arrow"><Arrow /></span>
-        </div>
+      <Link className="field-viewport" to={`/projects/${project.id}`} aria-label={`Explore ${project.name}`}
+        style={{ "--entry-x": slide.direction > 0 ? "100%" : "-100%" }}>
+        {slide.previous !== null && (
+          <FieldNoteSlide key={projects[slide.previous].id} project={projects[slide.previous]}
+            className="field-outgoing" hidden />
+        )}
+        <FieldNoteSlide key={project.id} project={project}
+          className={slide.previous === null ? "" : "field-incoming"}
+          onAnimationEnd={event => {
+            if (event.target === event.currentTarget) {
+              setSlide(current => current === slide ? { ...current, previous: null } : current);
+            }
+          }} />
       </Link>
       {projects.length > 1 && (
         <div className="field-controls">
           <button type="button" onClick={() => step(-1)} aria-label="Previous field note">←</button>
-          <button type="button" onClick={() => setPlaying(p => !p)}
-            aria-label={playing ? "Pause field notes" : "Play field notes"}>{playing ? "Pause" : "Play"}</button>
           <button type="button" onClick={() => step(1)} aria-label="Next field note">→</button>
         </div>
       )}

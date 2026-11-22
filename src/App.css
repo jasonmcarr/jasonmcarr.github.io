@@ -277,8 +277,31 @@ p + p {
 .hero-photo .data-art span {
   font-size: clamp(34px, 4vw, 62px);
 }
-.hero-instrument > a {
+.field-viewport {
   display: block;
+  position: relative;
+  overflow: hidden;
+}
+.field-outgoing {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: field-exit 550ms ease-in-out both;
+}
+.field-incoming {
+  animation: field-enter 550ms ease-in-out both;
+}
+@keyframes field-enter {
+  from { transform: translateX(var(--entry-x)); }
+  to { transform: translateX(0); }
+}
+@keyframes field-exit {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-1 * var(--entry-x))); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .field-outgoing { display: none; }
+  .field-incoming { animation: none; }
 }
 .field-controls {
   display: flex;
