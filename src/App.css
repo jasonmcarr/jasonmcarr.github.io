@@ -145,16 +145,6 @@ p + p {
   letter-spacing: 0.07em;
   font-weight: 500;
   line-height: 1.05;
-  position: relative;
-  padding-left: 30px;
-}
-.brand-cross {
-  position: absolute;
-  left: 0;
-  top: 1px;
-  color: var(--sage);
-  font-weight: 300;
-  font-size: 32px;
 }
 .brand-sub {
   display: block;

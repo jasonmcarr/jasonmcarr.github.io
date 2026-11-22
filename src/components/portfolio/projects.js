@@ -2,12 +2,12 @@ import trapDiagram from "../../assets/images/project2/trap_diagram.png";
 import poster from "../../assets/images/project6/optical-cooling.png";
 import dashboard from "../../assets/images/project3/tracker-home.png";
 import dashboardBars from "../../assets/images/project3/tracker-bar.png";
-const trajectories = `${process.env.PUBLIC_URL}/research/charts/Trajectories.png`;
-const fft = `${process.env.PUBLIC_URL}/research/charts/Axial_FFT.png`;
-const quality = `${process.env.PUBLIC_URL}/research/charts/q_avg.png`;
-const spectrum = `${process.env.PUBLIC_URL}/research/charts/fluo_spectra.png`;
-const photo = (name) => `${process.env.PUBLIC_URL}/research/${name}.png`;
-export const resume = `${process.env.PUBLIC_URL}/documents/Jason-Carr-Resume.pdf?v=20261108-approved`;
+const trajectories = `/research/charts/Trajectories.png`;
+const fft = `/research/charts/Axial_FFT.png`;
+const quality = `/research/charts/q_avg.png`;
+const spectrum = `/research/charts/fluo_spectra.png`;
+const photo = (name) => `/research/${name}.png`;
+export const resume = `/documents/Jason-Carr-Resume.pdf?v=20261108-approved`;
 export const projects = [
   {
     id: "project4",
@@ -46,7 +46,7 @@ export const projects = [
     name: "Crystal growth & material characterization",
     category: "Materials & optics",
     tags: ["Crystal growth", "SEM", "Fluorescence"],
-    image: `${process.env.PUBLIC_URL}/research/sem-5638.webp`,
+    image: `/research/sem-5638.webp`,
     alt: "Scanning electron micrograph showing crystalline particle morphology",
     summary:
       "Growing and examining materials through synthesis, electron microscopy, and fluorescence measurements.",

@@ -594,7 +594,7 @@ export default function App() {
       </a>
       <header className="site-header wrap">
         <Link className="wordmark" to="/" aria-label="Jason Carr home">
-          <span className="brand-cross">+</span> JASON CARR
+          JASON CARR
           <span className="brand-sub">ENGINEERING & RESEARCH</span>
         </Link>
         <nav aria-label="Main navigation">

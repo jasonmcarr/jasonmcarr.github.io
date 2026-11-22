@@ -4,10 +4,10 @@ Source code for [jacecarr.dev](https://jacecarr.dev), a responsive portfolio fea
 
 ## Development
 
-This site is a Create React App project using `react-app-rewired`, React Router (hash routing), and EmailJS for the contact form.
+This site is a Vite project using React Router (hash routing), and EmailJS for the contact form.
 
 ```bash
-npm ci --legacy-peer-deps
+npm ci
 npm start
 npm run build
 ```

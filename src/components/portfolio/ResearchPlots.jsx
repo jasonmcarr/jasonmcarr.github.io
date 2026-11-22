@@ -1,5 +1,9 @@
 import React from "react";
-import Plot from "react-plotly.js";
+import createPlotComponent from "react-plotly.js/factory";
+import Plotly from "plotly.js/lib/core";
+import bar from "plotly.js/lib/bar";
+import scatter from "plotly.js/lib/scatter";
+import table from "plotly.js/lib/table";
 import { themeTrace, themeLayout } from "./plotTheme";
 import thermal from "../../assets/json_files/thermalmotionscatterplot.json";
 import vertical from "../../assets/json_files/verticalhistogram.json";
@@ -7,6 +11,9 @@ import transverse from "../../assets/json_files/transversehistogram.json";
 import airline from "../../assets/json_files/avgpricebyairline.json";
 import day from "../../assets/json_files/avgpricebyairlinebyday.json";
 import time from "../../assets/json_files/avgpricebyairlinebytime.json";
+
+Plotly.register([bar, scatter, table]);
+const Plot = createPlotComponent(Plotly);
 
 export default function ResearchPlots({ type }) {
   const plots =
