@@ -101,6 +101,7 @@ function shuffleFieldNotes() {
 }
 
 function FieldNotes() {
+  const fieldRef = useRef(null);
   const [initialOrder] = useState(shuffleFieldNotes);
   const sequence = useRef({ order: initialOrder, position: 0 });
   const [slide, setSlide] = useState({ index: initialOrder[0], previous: null, direction: 1 });
@@ -133,17 +134,23 @@ function FieldNotes() {
     if (hovered || projects.length < 2) return;
     const autoplay = window.matchMedia("(min-width: 761px) and (prefers-reduced-motion: no-preference)");
     let timer;
+    let visible = false;
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      sync();
+    });
     function sync() {
       window.clearInterval(timer);
-      if (autoplay.matches && !document.hidden) {
+      if (visible && autoplay.matches && !document.hidden) {
         timer = window.setInterval(() => step(1), 7000);
       }
     }
-    sync();
+    observer.observe(fieldRef.current);
     autoplay.addEventListener("change", sync);
     document.addEventListener("visibilitychange", sync);
     return () => {
       window.clearInterval(timer);
+      observer.disconnect();
       autoplay.removeEventListener("change", sync);
       document.removeEventListener("visibilitychange", sync);
     };
@@ -151,7 +158,7 @@ function FieldNotes() {
 
   if (!project) return null;
   return (
-    <section className="hero-instrument" aria-label="Field notes" aria-roledescription="carousel"
+    <section ref={fieldRef} className="hero-instrument" aria-label="Field notes" aria-roledescription="carousel"
       onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
       <div className="instrument-label">
         <span>FIELD NOTES / {String(slide.index + 1).padStart(3, "0")}</span>
@@ -173,8 +180,8 @@ function FieldNotes() {
       </Link>
       {projects.length > 1 && (
         <div className="field-controls">
-          <button type="button" onClick={() => step(-1)} aria-label="Previous field note">←</button>
-          <button type="button" onClick={() => step(1)} aria-label="Next field note">→</button>
+          <button type="button" onClick={() => step(-1)} aria-label="Previous field note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7" /></svg></button>
+          <button type="button" onClick={() => step(1)} aria-label="Next field note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7" /></svg></button>
         </div>
       )}
     </section>

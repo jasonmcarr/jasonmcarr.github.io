@@ -1,13 +1,16 @@
-import tangoEmbrace from "../../assets/images/portfolio/tango-embrace.svg";
-import discordMark from "../../assets/images/portfolio/discord-mark.svg";
-import rentalSearch from "../../assets/images/portfolio/rental-search.svg";
-import commanderHand from "../../assets/images/portfolio/commander-hand.svg";
-import penTablet from "../../assets/images/portfolio/pen-tablet.svg";
-import cameraSchema from "../../assets/images/portfolio/camera-schema.svg";
-import semiconductorChip from "../../assets/images/portfolio/semiconductor-chip.svg";
-import flightRoute from "../../assets/images/portfolio/flight-route.svg";
+import dashboardCover from "../../assets/images/portfolio/dashboardCover.webp";
+import chamberCover from "../../assets/images/portfolio/chamberCover.webp";
+import trapCover from "../../assets/images/portfolio/trapCover.webp";
+import tandelaDancers from "../../assets/images/portfolio/tandela-dancers.webp";
+import discordMark from "../../assets/images/portfolio/discord-mark.svg?no-inline";
+import rentalSearch from "../../assets/images/portfolio/rental-search.svg?no-inline";
+import commanderHand from "../../assets/images/portfolio/commander-hand.svg?no-inline";
+import penTablet from "../../assets/images/portfolio/pen-tablet.svg?no-inline";
+import cameraSchema from "../../assets/images/portfolio/camera-schema.svg?no-inline";
+import semiconductorChip from "../../assets/images/portfolio/semiconductor-chip.svg?no-inline";
+import flightRoute from "../../assets/images/portfolio/flight-route.svg?no-inline";
 import originalSite from "../../assets/images/portfolio/original-site.webp";
-import opticalWaist from "../../assets/images/portfolio/optical-waist.svg";
+import opticalWaist from "../../assets/images/portfolio/optical-waist.svg?no-inline";
 import trapDiagram from "../../assets/images/project2/trap_diagram.png";
 import poster from "../../assets/images/project6/optical-cooling.png";
 import dashboard from "../../assets/images/project3/tracker-home.png";
@@ -28,7 +31,7 @@ export const projects = [
     name: "Magneto-gravitational trapping",
     category: "Experimental systems",
     tags: ["Vacuum systems", "FFT analysis", "Python"],
-    image: photo("magnetic-quadrupole-trap"),
+    image: trapCover,
     alt: "Green-illuminated magnetic quadrupole particle trap",
     summary:
       "An experimental platform for studying levitated particle motion across atmospheric and vacuum conditions.",
@@ -147,7 +150,7 @@ export const projects = [
     name: "Optical cooling research",
     category: "Materials & optics",
     tags: ["Materials synthesis", "SEM / XRD", "Thermometry"],
-    image: photo("fluorescence-chamber"),
+    image: chamberCover,
     alt: "Fluorescing sample inside a laboratory chamber",
     imageNote: "Fluorescence chamber from my laboratory work.",
     summary:
@@ -198,7 +201,7 @@ export const projects = [
     name: "COVID-19 Tableau dashboard",
     category: "Software & data",
     tags: ["Tableau", "Data visualization", "Interactive filtering"],
-    image: dashboard,
+    image: dashboardCover,
     alt: "Tableau dashboard showing global coronavirus and vaccination data",
     summary:
       "An interactive dashboard for exploring geographic and temporal patterns in pandemic data.",
@@ -428,8 +431,8 @@ export const projects = [
   },
   {
     id: "tandela",
-    image: tangoEmbrace,
-    alt: "Two Argentine tango dancers in close embrace with one leg extended",
+    image: tandelaDancers,
+    alt: "Sage outline of two Argentine tango dancers in close embrace",
     imageFit: "contain",
     number: "16",
     title: "Tandela",
