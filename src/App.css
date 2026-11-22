@@ -1228,3 +1228,8 @@ img[src*="/research/sem-"] {
   height: auto;
   margin: 0 auto 24px;
 }
+@media (min-width: 761px) {
+  .about-portrait {
+    margin-top: clamp(6px, 0.9vw, 14px);
+  }
+}
