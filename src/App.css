@@ -268,6 +268,37 @@ p + p {
   aspect-ratio: 1;
   object-fit: cover;
 }
+.hero-photo .data-art {
+  aspect-ratio: 1;
+  height: auto;
+  padding-inline: 26px;
+  text-align: center;
+}
+.hero-photo .data-art span {
+  font-size: clamp(34px, 4vw, 62px);
+}
+.hero-instrument > a {
+  display: block;
+}
+.field-controls {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+.field-controls button {
+  min-width: 34px;
+  min-height: 30px;
+  background: transparent;
+  border: 0;
+  color: var(--sage);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.field-controls button:hover {
+  background: #a8c99a14;
+}
 .crosshair {
   position: absolute;
   width: 20px;

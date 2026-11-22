@@ -24,6 +24,25 @@ const centeredArtwork = new Set([
   "portfolio-archive", "tandela",
 ]);
 
+function ProjectArtwork({ project, loading }) {
+  return project.image ? (
+    <ResilientImage src={project.image} alt={project.alt} loading={loading} />
+  ) : (
+    <div className="data-art" aria-hidden="true">
+      <span style={centeredArtwork.has(project.id) ? { textAlign: "center" } : undefined}>
+        {project.art ||
+          (project.plots === "optical" ? "5,000" : "DATA → INSIGHT")}
+      </span>
+      <small>
+        {project.artCaption ||
+          (project.plots === "optical"
+            ? "IMAGES ANALYZED"
+            : "COLLECT / ANALYZE / VISUALIZE")}
+      </small>
+    </div>
+  );
+}
+
 function ProjectCard({ project, featured = false }) {
   return (
     <Link
@@ -31,22 +50,7 @@ function ProjectCard({ project, featured = false }) {
       to={`/projects/${project.id}`}
     >
       <div className="card-image">
-        {project.image ? (
-          <ResilientImage src={project.image} alt={project.alt} loading="lazy" />
-        ) : (
-          <div className="data-art" aria-hidden="true">
-            <span style={centeredArtwork.has(project.id) ? { textAlign: "center" } : undefined}>
-              {project.art ||
-                (project.plots === "optical" ? "5,000" : "DATA → INSIGHT")}
-            </span>
-            <small>
-              {project.artCaption ||
-                (project.plots === "optical"
-                  ? "IMAGES ANALYZED"
-                  : "COLLECT / ANALYZE / VISUALIZE")}
-            </small>
-          </div>
-        )}
+        <ProjectArtwork project={project} loading="lazy" />
         <span className="image-index">
           {project.number} / RESEARCH & DEVELOPMENT
         </span>
@@ -67,6 +71,78 @@ function ProjectCard({ project, featured = false }) {
         </div>
       </div>
     </Link>
+  );
+}
+function FieldNotes() {
+  const [index, setIndex] = useState(0);
+  const [playing, setPlaying] = useState(
+    () => !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
+  const [hovered, setHovered] = useState(false);
+  const project = projects[index];
+
+  useEffect(() => {
+    if (!playing || hovered || projects.length < 2) return;
+    const desktop = window.matchMedia("(min-width: 761px)");
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let timer;
+    function sync() {
+      window.clearInterval(timer);
+      if (desktop.matches && !document.hidden) {
+        timer = window.setInterval(() => setIndex(i => (i + 1) % projects.length), 7000);
+      }
+    }
+    function motionChanged() {
+      if (motion.matches) setPlaying(false);
+    }
+    sync();
+    desktop.addEventListener("change", sync);
+    motion.addEventListener("change", motionChanged);
+    document.addEventListener("visibilitychange", sync);
+    return () => {
+      window.clearInterval(timer);
+      desktop.removeEventListener("change", sync);
+      motion.removeEventListener("change", motionChanged);
+      document.removeEventListener("visibilitychange", sync);
+    };
+  }, [playing, hovered]);
+
+  function step(offset) {
+    setPlaying(false);
+    setIndex(i => (i + offset + projects.length) % projects.length);
+  }
+
+  if (!project) return null;
+  return (
+    <section className="hero-instrument" aria-label="Field notes" aria-roledescription="carousel"
+      onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+      onFocusCapture={event => { if (event.target.matches(":focus-visible")) setPlaying(false); }}>
+      <div className="instrument-label">
+        <span>FIELD NOTES / {String(index + 1).padStart(3, "0")}</span>
+        <span>{project.category.toUpperCase()}</span>
+      </div>
+      <Link to={`/projects/${project.id}`} aria-label={`Explore ${project.name}`}>
+        <div className="hero-photo">
+          <ProjectArtwork key={project.id} project={project} />
+          <span className="crosshair top-left" />
+          <span className="crosshair bottom-right" />
+        </div>
+        <div className="instrument-caption">
+          <span>{project.fieldLabel || project.tags[0]}<br />
+            <strong>{project.fieldTitle || project.name}</strong>
+          </span>
+          <span className="round-arrow"><Arrow /></span>
+        </div>
+      </Link>
+      {projects.length > 1 && (
+        <div className="field-controls">
+          <button type="button" onClick={() => step(-1)} aria-label="Previous field note">←</button>
+          <button type="button" onClick={() => setPlaying(p => !p)}
+            aria-label={playing ? "Pause field notes" : "Play field notes"}>{playing ? "Pause" : "Play"}</button>
+          <button type="button" onClick={() => step(1)} aria-label="Next field note">→</button>
+        </div>
+      )}
+    </section>
   );
 }
 function Home() {
@@ -108,35 +184,7 @@ function Home() {
             </a>
           </div>
         </div>
-        <Link
-          to="/projects/project4"
-          className="hero-instrument"
-          aria-label="Explore the magnetic quadrupole trapping project"
-        >
-          <div className="instrument-label">
-            <span>FIELD NOTES / 001</span>
-            <span>EXPERIMENTAL SYSTEMS</span>
-          </div>
-          <div className="hero-photo">
-            <ResilientImage
-              src={projects[0].image}
-              alt={projects[0].alt}
-              fetchpriority="high"
-            />
-            <span className="crosshair top-left" />
-            <span className="crosshair bottom-right" />
-          </div>
-          <div className="instrument-caption">
-            <span>
-              Magnetic quadrupole
-              <br />
-              <strong>Particle levitation experiment</strong>
-            </span>
-            <span className="round-arrow">
-              <Arrow />
-            </span>
-          </div>
-        </Link>
+        <FieldNotes />
       </section>
       <section className="wrap section">
         <div className="section-heading">

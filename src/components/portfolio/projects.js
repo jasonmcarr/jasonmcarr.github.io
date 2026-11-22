@@ -11,6 +11,8 @@ export const resume = `/documents/Jason-Carr-Resume.pdf?v=20261108-approved`;
 export const projects = [
   {
     id: "project4",
+    fieldLabel: "Magnetic quadrupole",
+    fieldTitle: "Particle levitation experiment",
     number: "01",
     title: "Magneto-gravitational trapping",
     name: "Magneto-gravitational trapping",
