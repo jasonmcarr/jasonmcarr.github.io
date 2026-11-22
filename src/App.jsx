@@ -18,6 +18,12 @@ const ResearchPlots = lazy(
 );
 const email = "jacecarrdev@gmail.com";
 
+const centeredArtwork = new Set([
+  "project2", "project1", "semiconductor-calculator", "database-pipeline",
+  "tablet-driver-switch", "commander-simulator", "portfolio-engineering",
+  "portfolio-archive", "tandela",
+]);
+
 function ProjectCard({ project, featured = false }) {
   return (
     <Link
@@ -29,7 +35,7 @@ function ProjectCard({ project, featured = false }) {
           <ResilientImage src={project.image} alt={project.alt} loading="lazy" />
         ) : (
           <div className="data-art" aria-hidden="true">
-            <span>
+            <span style={centeredArtwork.has(project.id) ? { textAlign: "center" } : undefined}>
               {project.art ||
                 (project.plots === "optical" ? "5,000" : "DATA → INSIGHT")}
             </span>
