@@ -1,3 +1,11 @@
+import tangoEmbrace from "../../assets/images/portfolio/tango-embrace.svg";
+import discordMark from "../../assets/images/portfolio/discord-mark.svg";
+import rentalSearch from "../../assets/images/portfolio/rental-search.svg";
+import commanderHand from "../../assets/images/portfolio/commander-hand.svg";
+import penTablet from "../../assets/images/portfolio/pen-tablet.svg";
+import cameraSchema from "../../assets/images/portfolio/camera-schema.svg";
+import semiconductorChip from "../../assets/images/portfolio/semiconductor-chip.svg";
+import flightRoute from "../../assets/images/portfolio/flight-route.svg";
 import originalSite from "../../assets/images/portfolio/original-site.webp";
 import opticalWaist from "../../assets/images/portfolio/optical-waist.svg";
 import trapDiagram from "../../assets/images/project2/trap_diagram.png";
@@ -161,6 +169,9 @@ export const projects = [
   },
   {
     id: "project1",
+    image: flightRoute,
+    alt: "A plane crossing a folded map along a dotted flight path",
+    imageFit: "contain",
     number: "06",
     title: "Expedia flight data",
     name: "Flight-price data pipeline",
@@ -210,6 +221,9 @@ export const projects = [
 
   {
     id: "semiconductor-calculator",
+    image: semiconductorChip,
+    alt: "Semiconductor chip with a central die, pins, and circuit traces",
+    imageFit: "contain",
     title: "Semiconductor equation calculator",
     name: "Semiconductor equations GUI",
     tags: ["Python", "Tkinter", "NumPy"],
@@ -232,6 +246,9 @@ export const projects = [
   },
   {
     id: "database-pipeline",
+    image: cameraSchema,
+    alt: "Camera retail schema linking customers, orders, and order items",
+    imageFit: "contain",
     title: "Database design in Python",
     name: "Synthetic retail database pipeline",
     tags: ["PostgreSQL", "Pandas", "Faker"],
@@ -257,6 +274,9 @@ export const projects = [
   },
   {
     id: "tablet-driver-switch",
+    image: penTablet,
+    alt: "Drawing tablet with shortcut buttons and a stylus above the active area",
+    imageFit: "contain",
     title: "Tablet driver setup",
     name: "Tablet driver switching automation",
     tags: ["Python", "Windows", "Process automation"],
@@ -278,6 +298,9 @@ export const projects = [
   },
   {
     id: "commander-simulator",
+    image: commanderHand,
+    alt: "A fan of seven illustrated trading cards",
+    imageFit: "contain",
     title: "Commander game simulator",
     name: "MTG Unified Simulator",
     tags: ["Rust", "Monte Carlo", "Reproducibility"],
@@ -353,6 +376,9 @@ export const projects = [
   },
   {
     id: "rental-reporter",
+    image: rentalSearch,
+    alt: "A rental listing with a house scanned by a magnifying glass",
+    imageFit: "contain",
     title: "Rental search reports",
     name: "Rental discovery & reporting pipeline",
     tags: ["Python", "BeautifulSoup", "ReportLab"],
@@ -376,6 +402,9 @@ export const projects = [
   },
   {
     id: "discord-cleanup",
+    image: discordMark,
+    alt: "Discord controller logo in sage outline",
+    imageFit: "contain",
     title: "Discord message cleanup",
     name: "Discord channel cleanup bot",
     tags: ["Python", "discord.py", "Asyncio"],
@@ -399,6 +428,9 @@ export const projects = [
   },
   {
     id: "tandela",
+    image: tangoEmbrace,
+    alt: "Two Argentine tango dancers in close embrace with one leg extended",
+    imageFit: "contain",
     number: "16",
     title: "Tandela",
     name: "Tandela",

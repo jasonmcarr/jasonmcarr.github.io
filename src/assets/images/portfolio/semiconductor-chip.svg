@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320" fill="none">
+  <title>Semiconductor chip with a central die, pins, and circuit traces</title>
+  <g stroke="#b1cf9f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <g stroke="#678775" stroke-width="1.6"><path d="M221 110h-39l-21-21h-42m101 48h-71l-17 17H93m127 35h-47l-26 26h-29m302-105h42l23-22h35m-100 58h63l22 21h41m-126 35h36l28 27h39"/>
+    <g fill="#213329"><circle cx="115" cy="89" r="4"/><circle cx="89" cy="154" r="4"/><circle cx="114" cy="215" r="4"/><circle cx="524" cy="88" r="4"/><circle cx="550" cy="167" r="4"/><circle cx="527" cy="229" r="4"/></g></g>
+    <g stroke-width="4"><path d="M256 80V61m0 179v19M240 96h-20m180 0h20"/><path d="M269 80V61m0 179v19M240 109h-20m180 0h20"/><path d="M282 80V61m0 179v19M240 122h-20m180 0h20"/><path d="M295 80V61m0 179v19M240 135h-20m180 0h20"/><path d="M308 80V61m0 179v19M240 148h-20m180 0h20"/><path d="M321 80V61m0 179v19M240 161h-20m180 0h20"/><path d="M334 80V61m0 179v19M240 174h-20m180 0h20"/><path d="M347 80V61m0 179v19M240 187h-20m180 0h20"/><path d="M360 80V61m0 179v19M240 200h-20m180 0h20"/><path d="M373 80V61m0 179v19M240 213h-20m180 0h20"/><path d="M386 80V61m0 179v19M240 226h-20m180 0h20"/></g>
+    <rect x="240" y="80" width="160" height="160" rx="11" fill="#17231e"/>
+    <path d="M254 108v-14h14m105 132h13v-13"/><rect x="271" y="111" width="98" height="98" rx="3"/>
+    <g stroke="#7fa28b" stroke-width="1.7"><path d="M281 123h34v41h-34zm45 0h32v16h-32zm0 25h32v16h-32zm-45 27h77v23h-77z"/><path d="M290 132h16m-16 8h16m-16 8h16m3 38h40"/></g>
+  </g>
+</svg>

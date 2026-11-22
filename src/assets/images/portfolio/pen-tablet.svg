@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320" fill="none">
+  <title>Drawing tablet with shortcut buttons and a stylus above the active area</title>
+  <g stroke="#b1cf9f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <g transform="matrix(1 -.08 .2 .86 -36 49)">
+      <rect x="128" y="80" width="345" height="184" rx="13" fill="#18251e"/>
+      <rect x="165" y="98" width="286" height="145" rx="6" stroke="#769982"/>
+      <path d="M178 122v-10h10m236 0h12v11m0 93v13h-12m-234 0h-12v-12"/>
+      <g stroke-width="1.6"><rect x="139" y="105" width="13" height="24" rx="5"/><rect x="139" y="138" width="13" height="24" rx="5"/><circle cx="146" cy="191" r="7"/></g>
+      <path d="M227 204c30-36 55-7 79-26s-12-21-20-6 24 22 51 1" stroke="#89aa90"/>
+    </g>
+    <g transform="translate(339 177) rotate(-38)"><path d="m0 0 24-8h164q10 0 10 8t-10 8H24z" fill="#213329"/><path d="M24-8v16m138-16v16M0 0l9-1"/><rect x="67" y="-4" width="35" height="5" rx="2" stroke="#80a48c"/></g>
+  </g>
+</svg>

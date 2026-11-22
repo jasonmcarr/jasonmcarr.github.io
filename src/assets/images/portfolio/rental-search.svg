@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" width="640" height="320" fill="none">
+  <title>A rental listing with a house scanned by a magnifying glass</title>
+  <g stroke="#b1cf9f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+
+    <rect x="153" y="76" width="232" height="154" rx="7" stroke="#688771"/>
+    <rect x="165" y="86" width="232" height="154" rx="7" stroke="#849e86" fill="#16221b"/>
+    <rect x="178" y="97" width="232" height="154" rx="7" fill="#19271f"/>
+    <path d="M178 122h232" stroke="#708d79"/><path d="M190 109h2m8 0h2m8 0h2" stroke-width="3"/>
+    <path d="m198 168 42-34 42 34m-73-7v49h61v-49m-40 49v-29h20v29m-46 16h77"/>
+    <g stroke="#799b81"><path d="M303 144h81m-81 12h61m-61 69h33"/></g>
+    <circle cx="386" cy="180" r="40" fill="#1c2b22"/><circle cx="386" cy="180" r="33" stroke="#698971"/>
+    <path d="m415 208 12 12m-2 5 9-10 42 39q5 6-1 11-4 5-10 0z" fill="#24372a"/>
+    <path d="M366 172h38m-38 10h31m-31 10h21"/>
+  </g>
+</svg>
