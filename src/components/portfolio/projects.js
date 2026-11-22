@@ -97,6 +97,8 @@ export const projects = [
     category: "Materials & optics",
     tags: ["Spectroscopy", "Thin films", "Curve fitting"],
     image: spectrum,
+    imageFit: "contain",
+    imageInset: "3%",
     alt: "Measured thulium fluorescence spectrum and fitted component curves",
     summary:
       "Optical measurement and component fitting to investigate the fluorescence of a thin-film crystalline system.",
@@ -203,6 +205,8 @@ export const projects = [
     category: "Software & data",
     tags: ["Tableau", "Data visualization", "Interactive filtering"],
     image: dashboardCover,
+    imageFit: "contain",
+    imageInset: "3%",
     alt: "Tableau dashboard showing global coronavirus and vaccination data",
     summary:
       "An interactive dashboard for exploring geographic and temporal patterns in pandemic data.",
