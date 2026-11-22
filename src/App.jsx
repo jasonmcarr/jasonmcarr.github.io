@@ -500,9 +500,8 @@ function About() {
         </p>
         <p>
           Outside the lab, I love dancing Argentine tango and teaching it with
-          Lela at Butte Tango. One of my favorite parts of teaching is seeing
-          two people find a comfortable walk together and start listening to the
-          music instead of counting steps.
+          Lela at Butte Tango. One of my favorite things about teaching tango is helping
+          people discover the elegance and control that resides within themselves.
         </p>
       </div>
     </section>
