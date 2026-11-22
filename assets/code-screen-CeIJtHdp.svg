@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="320" viewBox="0 0 640 320" fill="none">
+  <title>Desktop monitor showing a code editor</title>
+  <g stroke="#b1cf9f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="136" y="39" width="368" height="209" rx="10" fill="#18251e"/>
+    <rect x="147" y="50" width="346" height="173" rx="3" stroke="#789782"/>
+    <path d="M148 77h344m-277 1v144" stroke="#728e7a" stroke-width="1.6"/>
+    <g stroke="#9cb699" stroke-width="3"><path d="M158 63h1m9 0h1m9 0h1"/></g>
+    <path d="m161 99 4 4 4-4m6 2h22m-29 16h21m-21 14h30m-30 14h17" stroke="#819f88" stroke-width="2"/>
+    <path d="m250 96-9 7 9 7m19-14 9 7-9 7m-8-17-5 20" stroke="#d7e5cb"/>
+    <path d="M241 129h33m9 0h55m-85 16h34m9 0h72m-101 16h48m10 0h40m-112 16h25m-37 16h39" stroke-width="3"/>
+    <path d="M347 129h41m-10 16h42m-45 16h29m-115 16h38" stroke="#718f7c" stroke-width="3"/>
+    <path d="M290 187v12" stroke="#d7e5cb"/>
+    <path d="M304 248l-6 21m38-21 6 21m-58 1h72l10 7h-92z"/>
+    <path d="M312 236h16" stroke="#71917b"/>
+  </g>
+</svg>
