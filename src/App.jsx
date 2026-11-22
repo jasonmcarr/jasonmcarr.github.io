@@ -457,6 +457,7 @@ function About() {
           </a>
         </div>
         <div className="timeline">
+          <img className="about-portrait" src="/research/jason-carr.webp" width="700" height="596" alt="Jason Carr" />
           {[
             [
               "2024 — PRESENT",
@@ -496,6 +497,12 @@ function About() {
           collaboration gives them room to use those strengths. I also believe
           that taking responsibility means being willing to question my own
           assumptions and consider who will be affected by a decision.
+        </p>
+        <p>
+          Outside the lab, I love dancing Argentine tango and teaching it with
+          Lela at Butte Tango. One of my favorite parts of teaching is seeing
+          two people find a comfortable walk together and start listening to the
+          music instead of counting steps.
         </p>
       </div>
     </section>
