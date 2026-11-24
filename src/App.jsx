@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
   useLocation,
+  useNavigationType,
   useParams,
 } from "react-router-dom";
 import ContactForm from "./components/portfolio/ContactForm";
@@ -12,6 +13,7 @@ import Arrow from "./components/portfolio/Arrow";
 import Terrain from "./components/portfolio/Terrain";
 import ResilientImage from "./components/portfolio/ResilientImage";
 import { projects, resume } from "./components/portfolio/projects";
+import usePortfolioScroll from "./components/portfolio/usePortfolioScroll";
 import "./App.css";
 const ResearchPlots = lazy(
   () => import("./components/portfolio/ResearchPlots"),
@@ -188,64 +190,6 @@ function FieldNotes() {
   );
 }
 function Home() {
-  useEffect(() => {
-    // Native scrolling remains available at /?scroll=native.
-    if (new URLSearchParams(window.location.search).get("scroll") === "native")
-      return;
-    const desktopMotion = window.matchMedia(
-      "(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
-    );
-    let instance;
-    let revision = 0;
-    const sync = async () => {
-      const current = ++revision;
-      instance?.destroy();
-      instance = undefined;
-      if (!desktopMotion.matches) return;
-      try {
-        const { default: Lenis } = await import("lenis");
-        if (current !== revision) return;
-        instance = new Lenis({
-          autoRaf: true,
-          lerp: 0.19,
-          syncTouch: false,
-          allowNestedScroll: true,
-          // HashRouter owns links; Lenis only eases wheel input.
-          anchors: false,
-          prevent: (node) =>
-            node.matches("dialog, input, select, textarea, [contenteditable]"),
-        });
-      } catch {
-        // A failed optional chunk must not change native scrolling.
-      }
-    };
-    const releaseWheel = () => {
-      if (instance?.isScrolling === "smooth") {
-        instance.stop();
-        instance.start();
-      }
-    };
-    const onKey = (event) => {
-      if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key))
-        releaseWheel();
-    };
-    const onClick = (event) => {
-      if (event.target instanceof Element && event.target.closest("a"))
-        releaseWheel();
-    };
-    desktopMotion.addEventListener("change", sync);
-    window.addEventListener("keydown", onKey, true);
-    window.addEventListener("click", onClick, true);
-    sync();
-    return () => {
-      ++revision;
-      desktopMotion.removeEventListener("change", sync);
-      window.removeEventListener("keydown", onKey, true);
-      window.removeEventListener("click", onClick, true);
-      instance?.destroy();
-    };
-  }, []);
-
   return (
     <>
       <section className="hero wrap">
@@ -719,8 +663,8 @@ function NotFound() {
 export default function App() {
   const [paused, setPaused] = useState(false);
   const location = useLocation();
+  usePortfolioScroll(location.key, useNavigationType());
   useEffect(() => {
-    window.scrollTo(0, 0);
     const project = projects.find(
       (p) => location.pathname === `/projects/${p.id}`,
     );
